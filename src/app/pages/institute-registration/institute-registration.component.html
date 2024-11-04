@@ -1,0 +1,61 @@
+<div class="container-fluid main-container d-flex justify-content-center align-items-center">
+    <div class="row form-control d-flex justify-content-center form-container shadow-lg my-5">
+        <div class="col-12 text-center">
+            <img src="logo.png" alt="TuitionToAll Logo">
+        </div>
+        <div class="col-12 text-center">
+            <h1 class="tuition-to-all-text fs-3">TuitionToAll</h1>
+        </div>
+        <div class="col-12 text-center">
+            <h2 class="subheader-text fs-1">Institute Registration</h2>
+        </div>
+        <div class="col-12 content-container ">
+            <div class="form-section rounded">
+                <div class="row g-3">
+                    <div class="col-12 mb-2">
+                        <h3>Institute Details</h3>
+                    </div>
+                    <div class="col-12 col-md-6 mb-1">
+                        <label for="instituteName" class="form-label text-dark fw-bold">Institute Name :-</label>
+                        <input type="text" class="form-control" id="instituteName" placeholder="Enter your Institute Name">
+                    </div>
+                    <div class="col-12 col-md-6 mb-1">
+                        <label for="contactNo" class="form-label text-dark fw-bold">Contact Number :-</label>
+                        <input type="text" class="form-control" id="contactNo" placeholder="Enter your Contact Number">
+                    </div>
+                    <div class="col-12 mb-1">
+                        <label for="emailAddress" class="form-label text-dark fw-bold">Email Address :-</label>
+                        <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email address">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="address" class="form-label text-dark fw-bold">Address :-</label>
+                        <textarea type="text" class="form-control" id="address" placeholder="Enter your Institute Address" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="col-12 mb-2">
+                        <h3>Login Details</h3>
+                    </div>
+                    <div class="col-12 col-md-6 mb-1">
+                        <label for="password" class="form-label text-dark fw-bold">Login Password :-</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="col-12 col-md-6 mb-1">
+                        <label for="passwordConfirm" class="form-label text-dark fw-bold">Confirm Password :-</label>
+                        <input type="password" class="form-control" id="passwordConfirm" placeholder="ReEnter your password">
+                    </div>
+                    
+                    <div class="col-12 mt-4">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-6 col-md-4 mb-2 d-flex justify-content-center ">
+                                <button type="button" class="btn text-black border-1 border-black fw-bold action-button">Cancel</button>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-4 mb-2 d-flex justify-content-center">
+                                <button type="button" class="btn text-white next-button fw-bold action-button" (click)="registrationNextStep()">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,16 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-    background: linear-gradient(to bottom, #89C8ED, #B2DBF3, #FFFFFF);
+html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-
 }
+
+body {
+    background: linear-gradient(to bottom, #89C8ED, #B2DBF3, #FFFFFF);
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
 .tuition-to-all-text{
     color: #0850A1;
     font-weight: 900;
-    font-family: 'Inter', sans-serif;
 }
+
 .subheader-text{
     color: #16C1FF;
     font-weight: 600;
