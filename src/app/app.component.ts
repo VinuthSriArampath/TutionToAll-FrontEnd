@@ -10,5 +10,5 @@ import { LoginformComponent } from "./pages/loginform/loginform.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'TutionToAll-Frontend';
+  title = 'TuitionToAll-Frontend';
 }

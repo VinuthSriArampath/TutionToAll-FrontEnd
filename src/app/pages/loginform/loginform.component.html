@@ -13,18 +13,18 @@
             <div class="row">
                 <div class="col-12 mb-3">
                     <label for="username" class="form-label text-dark fw-bold">Username :-</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username" [(ngModel)]="username">
                 </div>
                 <div class="col-12 mb-3">
                     <label for="password" class="form-label text-dark fw-bold">Password :-</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="password">
                 </div>
                 <div class="col-12 mb-2">
-                    <button class="btn w-100 login-button text-white fw-bold">Login</button>
+                    <button class="btn w-100 login-button text-white fw-bold" (click)="login()">Login</button>
                 </div>
                 <div class="col-12 mb-1">
                     <div class="row">
-                        <div class="col-6 text-start href-text"><a href="#" class="text-dark">I don't have an account</a></div>
+                        <div class="col-6 text-start href-text"><a href="/institute/register" class="text-dark">Register My Institute</a></div>
                         <div class="col-6 text-end href-text"><a href="#" class="text-dark">Forgot Password?</a></div>
                     </div>
                 </div>
