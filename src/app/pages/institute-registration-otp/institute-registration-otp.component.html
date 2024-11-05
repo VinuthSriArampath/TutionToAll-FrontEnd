@@ -16,10 +16,10 @@
                         <p class="text-danger">** We have sent you a 6-digit code to verify your email address. Please enter the code below to continue. **</p>
                     </div>
                     <div class="col-12">
-                        <input type="text" class="form-control" placeholder="Enter the 6-digit code">
+                        <input type="text" class="form-control" placeholder="Enter the 6-digit code" [(ngModel)]="otp">
                     </div>
                     <div class="col-12 text-center pt-4">
-                        <button type="button" class="btn verify-button text-white fw-bold w-75">Verify</button>
+                        <button type="button" class="btn verify-button text-white fw-bold w-75" (click)="validateOtp()">Verify</button>
                     </div>
                 </div>
             </div>
@@ -27,3 +27,5 @@
         <p class="text-center text-dark">Copyright © 2024 TuitionToAll. All rights reserved.</p>   
     </div>
 </div>
+
+<P class="text-bg-dark">{{otp}}</P>
