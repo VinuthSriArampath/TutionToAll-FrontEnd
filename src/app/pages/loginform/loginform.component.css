@@ -26,6 +26,9 @@
 }
 
 @media (max-width: 640px) {
+    .logo{
+        width: 100px;
+    }
     .login-form-container {
         width: 95%;
     }

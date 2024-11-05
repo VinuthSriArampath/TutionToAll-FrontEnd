@@ -17,19 +17,19 @@
                     </div>
                     <div class="col-12 col-md-6 mb-1">
                         <label for="instituteName" class="form-label text-dark fw-bold">Institute Name :-</label>
-                        <input type="text" class="form-control" id="instituteName" placeholder="Enter your Institute Name">
+                        <input type="text" class="form-control" id="instituteName" placeholder="Enter your Institute Name" [(ngModel)]="institute.instituteName">
                     </div>
                     <div class="col-12 col-md-6 mb-1">
                         <label for="contactNo" class="form-label text-dark fw-bold">Contact Number :-</label>
-                        <input type="text" class="form-control" id="contactNo" placeholder="Enter your Contact Number">
+                        <input type="text" class="form-control" id="contactNo" placeholder="Enter your Contact Number" [(ngModel)]="institute.contactNo">
                     </div>
                     <div class="col-12 mb-1">
                         <label for="emailAddress" class="form-label text-dark fw-bold">Email Address :-</label>
-                        <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email address">
+                        <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email address" [(ngModel)]="institute.emailAddress">
                     </div>
                     <div class="col-12 mb-3">
                         <label for="address" class="form-label text-dark fw-bold">Address :-</label>
-                        <textarea type="text" class="form-control" id="address" placeholder="Enter your Institute Address" rows="3"></textarea>
+                        <textarea type="text" class="form-control" id="address" placeholder="Enter your Institute Address" rows="3" [(ngModel)]="institute.address" ></textarea>
                     </div>
                     
                     <div class="col-12 mb-2">
@@ -37,17 +37,17 @@
                     </div>
                     <div class="col-12 col-md-6 mb-1">
                         <label for="password" class="form-label text-dark fw-bold">Login Password :-</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="institute.loginPassword">
                     </div>
                     <div class="col-12 col-md-6 mb-1">
                         <label for="passwordConfirm" class="form-label text-dark fw-bold">Confirm Password :-</label>
-                        <input type="password" class="form-control" id="passwordConfirm" placeholder="ReEnter your password">
+                        <input type="password" class="form-control" id="passwordConfirm" placeholder="ReEnter your password" [(ngModel)]="institute.confirmPassword">
                     </div>
                     
                     <div class="col-12 mt-4">
                         <div class="row justify-content-center">
                             <div class="col-12 col-sm-6 col-md-4 mb-2 d-flex justify-content-center ">
-                                <button type="button" class="btn text-black border-1 border-black fw-bold action-button">Cancel</button>
+                                <button type="button" class="btn text-black border-1 border-black fw-bold action-button" (click)="registrationCancel()">Cancel</button>
                             </div>
                             <div class="col-12 col-sm-6 col-md-4 mb-2 d-flex justify-content-center">
                                 <button type="button" class="btn text-white next-button fw-bold action-button" (click)="registrationNextStep()">Next</button>
