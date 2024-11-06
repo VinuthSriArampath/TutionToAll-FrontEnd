@@ -6,6 +6,7 @@ import { ChangePasswordComponent } from './common/change-password/change-passwor
 import { StudentDashboardComponent } from './pages/student/student-dashboard/student-dashboard.component';
 import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/teacher-dashboard.component';
 import { InstituteDashboardComponent } from './pages/institute/institute-dashboard/institute-dashboard.component';
+import { InstituteAddCourseComponent } from './pages/course/institute-add-course/institute-add-course.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path:'institute/dashboard',
         component: InstituteDashboardComponent
+    },
+    {
+        path:'institute/course/add-course',
+        component: InstituteAddCourseComponent
     }
 ];

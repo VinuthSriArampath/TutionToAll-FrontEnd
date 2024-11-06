@@ -1,0 +1,77 @@
+.form-container{
+    width: 80%;
+    background-color: #DDF2FF;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+.subheader-text{
+    font-size: 2.5rem;
+}
+
+.search-button{
+    width: 100%;
+}
+
+.search-input{
+    max-width: 300px;
+    width: 100%;
+}
+.next-button{
+    background-color: black;
+}
+.action-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 20px;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1rem;
+    }
+    .form-section {
+        padding: 1rem 0.5rem;
+    }
+    .action-button {
+        width: 100%;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    .subheader-text {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Ensure inputs and buttons maintain proper spacing on mobile */
+.btn {
+    min-height: 40px;
+}
+
+.form-control, .form-select {
+    min-height: 40px;
+}
+
+/* Prevent content from being hidden behind footer */
+.container-fluid {
+    padding-bottom: 60px;
+}
+
+/* Update the action button related styles */
+.action-button-container {
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.action-button {
+    width: 100%;
+    padding: 8px 20px;
+}
+
+@media (max-width: 768px) {
+    .action-button-container {
+        width: 80%; /* Makes buttons slightly smaller on mobile */
+    }
+}
