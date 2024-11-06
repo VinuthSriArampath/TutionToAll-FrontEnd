@@ -12,13 +12,13 @@
                     <div class="container bg-white rounded-4 my-3 p-5">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <input type="checkbox" name="RegisteredTeacher" id="RegisteredTeacher" class="me-2 form-check-input border-black">
+                                <input type="checkbox" name="RegisteredTeacher" id="RegisteredTeacher" class="me-2 form-check-input border-black" [(ngModel)]="isRegistered">
                                 <label for="RegisteredTeacher" class="form-check-label fw-bold">Registered Teacher</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" *ngIf="isRegistered">
                             <div class="col-12">
-                                <div class="d-flex gap-2">
+                                <div class="d-flex gap-2" >
                                     <input type="text" class="form-control" placeholder="Search Teacher">
                                     <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Search</button>
                                 </div>
@@ -57,12 +57,12 @@
                                 <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3"></textarea>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" *ngIf="!isRegistered">
                             <div class="col-12">
                                 <h3 class="fw-bold my-3">Teacher Login Details</h3>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" *ngIf="!isRegistered">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="teacherPassword" class="form-label text-dark fw-bold">Password :-</label>
                                 <input type="password" class="form-control" id="teacherPassword" placeholder="Password">
@@ -74,10 +74,12 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-12 col-md-6 mb-3">
-                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100">Cancel</button>
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Register</button>
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">
+                                    {{isRegistered ? 'Add' : 'Register'}}
+                                </button>
                             </div>
                         </div>
                     </div>
