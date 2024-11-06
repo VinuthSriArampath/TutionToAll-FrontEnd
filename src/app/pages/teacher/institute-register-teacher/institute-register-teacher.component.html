@@ -1,1 +1,91 @@
-<p>institute-register-teacher works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <app-institute-navbar></app-institute-navbar>
+    </div>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center p-5">
+            <div class="row form-container rounded-4 shadow-lg p-5 d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Teacher Registration</h1>
+                </div>
+                <div class="col-12">
+                    <div class="container bg-white rounded-4 my-3 p-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input type="checkbox" name="RegisteredTeacher" id="RegisteredTeacher" class="me-2 form-check-input border-black">
+                                <label for="RegisteredTeacher" class="form-check-label fw-bold">Registered Teacher</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex gap-2">
+                                    <input type="text" class="form-control" placeholder="Search Teacher">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <h3 class="fw-bold">Teacher Details</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :-</label>
+                                <input type="text" class="form-control" id="teacherFirstName" placeholder="First Name">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :-</label>
+                                <input type="text" class="form-control" id="teacherLastName" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherContact" class="form-label text-dark fw-bold">Contact :-</label>
+                                <input type="text" class="form-control" id="teacherContact" placeholder="Contact">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherEmail" class="form-label text-dark fw-bold">Email :-</label>
+                                <input type="email" class="form-control" id="teacherEmail" placeholder="Email">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :-</label>
+                                <input type="date" class="form-control" id="teacherDateOfBirth">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="teacherAddress" class="form-label text-dark fw-bold">Address :-</label>
+                                <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="fw-bold my-3">Teacher Login Details</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherPassword" class="form-label text-dark fw-bold">Password :-</label>
+                                <input type="password" class="form-control" id="teacherPassword" placeholder="Password">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherConfirmPassword" class="form-label text-dark fw-bold">Confirm Password :-</label>
+                                <input type="password" class="form-control" id="teacherConfirmPassword" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
