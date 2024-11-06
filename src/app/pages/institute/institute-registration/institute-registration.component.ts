@@ -4,11 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Hearder1Component } from '../../../common/headers/hearder-1/hearder-1.component';
 
 @Component({
   selector: 'app-institute-registration',
   standalone: true,
-  imports: [FormsModule,CommonModule,HttpClientModule],
+  imports: [
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
+    Hearder1Component
+  ],
   templateUrl: './institute-registration.component.html',
   styleUrl: './institute-registration.component.css'
 })

@@ -1,11 +1,6 @@
 <div class="login-form d-flex align-items-center justify-content-center ">
     <div class="row text-white px-5 pt-3 pb-2 login-form-container rounded-5 shadow-lg">
-        <div class="col-12 d-flex justify-content-center">
-            <img src="logo.png" alt="Logo" class="logo">
-        </div>
-        <div class="col-12 d-flex justify-content-center ">
-            <h1 class="tuition-to-all-text">TuitionToAll</h1>
-        </div>
+        <app-hearder-1></app-hearder-1>
         <div class="col-12 d-flex justify-content-center ">
             <h1 class="subheader-text">Login</h1>
         </div>
@@ -20,12 +15,16 @@
                     <input type="password" class="form-control" id="password" placeholder="Enter your password" [(ngModel)]="password" autocomplete="off">
                 </div>
                 <div class="col-12 mb-2">
-                    <button class="btn w-100 login-button text-white fw-bold" (click)="login()">Login</button>
+                    <button type="button" class="btn w-100 login-button text-white fw-bold" (click)="login()">Login</button>
                 </div>
                 <div class="col-12 mb-1">
                     <div class="row">
-                        <div class="col-6 text-start href-text"><a href="/institute/register" class="text-dark">Register My Institute</a></div>
-                        <div class="col-6 text-end href-text"><a href="#" class="text-dark">Forgot Password?</a></div>
+                        <div class="col-6 text-start href-text">
+                            <a routerLink="institute/register" class="text-dark">Register My Institute</a>
+                        </div>
+                        <div class="col-6 text-end href-text">
+                            <a routerLink="change-password" class="text-dark">Forgot Password?</a>
+                        </div>
                     </div>
                 </div>
                 

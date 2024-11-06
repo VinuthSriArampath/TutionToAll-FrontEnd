@@ -19,12 +19,7 @@
     background-color: black;
 }
 
-img{
-    width: 170px;
-    height: auto;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
+
 
 .action-button {
     width: 100%;
@@ -68,9 +63,6 @@ img{
     }
     h3 {
         font-size: 1.5rem;
-    }
-    .tuition-to-all-text {
-        font-size: 1.75rem !important;
     }
     .subheader-text {
         font-size: 1.5rem !important;

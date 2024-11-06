@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { InstituteRegistrationComponent } from '../institute-registration/institute-registration.component';
 import swal from 'sweetalert2';
+import { Hearder1Component } from "../../../common/headers/hearder-1/hearder-1.component";
 
 @Component({
   selector: 'app-institute-registration-otp',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule],
+  imports: [FormsModule, CommonModule, HttpClientModule, Hearder1Component],
   templateUrl: './institute-registration-otp.component.html',
   styleUrl: './institute-registration-otp.component.css'
 })

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LoginformComponent } from "./pages/loginform/loginform.component";
+import { LoginformComponent } from "./common/loginform/loginform.component";
 
 @Component({
   selector: 'app-root',

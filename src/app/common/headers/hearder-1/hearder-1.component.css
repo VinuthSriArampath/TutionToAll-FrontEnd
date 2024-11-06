@@ -1,0 +1,14 @@
+img{
+    width: 170px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.tuition-to-all-text{
+    font-size: 2.25rem;
+}
+@media (max-width: 576px) {
+    .tuition-to-all-text {
+        font-size: 1.75rem;
+    }
+}
