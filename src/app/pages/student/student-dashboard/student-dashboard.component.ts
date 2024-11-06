@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { StudentNavbarComponent } from "../common/student-navbar/student-navbar.component";
 
 @Component({
   selector: 'app-student-dashboard',
   standalone: true,
-  imports: [],
+  imports: [StudentNavbarComponent],
   templateUrl: './student-dashboard.component.html',
   styleUrl: './student-dashboard.component.css'
 })
