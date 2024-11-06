@@ -36,7 +36,8 @@ export class LoginformComponent {
 
 
         const institute = this.institutes.find((ins:any)=>ins.id === this.username);
-        if(institute.password === this.password){
+        if(institute){
+          if(institute.password === this.password){
           swal.fire({
             title: "Login Successful!",
             text: `Welcome ${institute.name}`,
@@ -47,11 +48,14 @@ export class LoginformComponent {
               this.LoggedUser.id = institute.id;
               this.LoggedUser.email = institute.email;
               sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
-              this.router.navigate(['/institute/register']);
+              this.router.navigate(['/institute/dashboard']);
             }
           });
+          }else{
+            this.alertMessage("Invalid Password","Please enter the correct password","error");
+          }
         }else{
-          this.alertMessage("Invalid Password","Please enter the correct password","error");
+          this.alertMessage("Invalid Username","Please enter the correct username","error");
         }
 
 
@@ -59,10 +63,11 @@ export class LoginformComponent {
 
 
         const student = this.students.find((st:any)=>st.id === this.username);
-        if(student.password === this.password){
-          swal.fire({
+        if(student){
+          if(student.password === this.password){
+            swal.fire({
             title: "Login Successful!",
-              text: `Welcome ${student.name}`,
+              text: `Welcome ${student.firstName} ${student.lastName}`,
             icon: "success",
             confirmButtonText: "Continue"
           }).then((result) => {
@@ -70,11 +75,14 @@ export class LoginformComponent {
               this.LoggedUser.id = student.id;
                 this.LoggedUser.email = student.email;
               sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
-              this.router.navigate(['/student/register']);
+              this.router.navigate(['/student/dashboard']);
             }
           });
+          }else{
+            this.alertMessage("Invalid Password","Please enter the correct password","error");
+          }
         }else{
-          this.alertMessage("Invalid Password","Please enter the correct password","error");
+          this.alertMessage("Invalid Username","Please enter the correct username","error");
         }
 
 
@@ -82,10 +90,11 @@ export class LoginformComponent {
 
 
         const teacher = this.teachers.find((t:any)=>t.id === this.username);
-        if(teacher.password === this.password){
+        if (teacher) {
+          if(teacher.password === this.password){
           swal.fire({
             title: "Login Successful!",
-            text: `Welcome ${teacher.name}`,
+            text: `Welcome ${teacher.firstName} ${teacher.lastName}`,
             icon: "success",
             confirmButtonText: "Continue"
           }).then((result) => {
@@ -93,12 +102,16 @@ export class LoginformComponent {
               this.LoggedUser.id = teacher.id;
               this.LoggedUser.email = teacher.email;
               sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
-              this.router.navigate(['/teacher/register']);
+              this.router.navigate(['/teacher/dashboard']);
             }
           });
         }else{
           this.alertMessage("Invalid Password","Please enter the correct password","error");
         }
+        }else{
+          this.alertMessage("Invalid Username","Please enter the correct username","error");
+        }
+        
 
 
       }
