@@ -18,13 +18,13 @@
                         <div class="row mb-3">
                             <div class="col-12">
                                 <label for="courseName" class="form-label text-dark fw-bold">Course Name :-</label>
-                                <input type="text" class="form-control" id="courseName" placeholder="Enter Course Name">
+                                <input type="text" class="form-control" id="courseName" placeholder="Enter Course Name" [(ngModel)]="Course.name">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
                                 <label for="courseType" class="form-label text-dark fw-bold">Course Type :-</label>
-                                <select class="form-select" id="courseType">
+                                <select class="form-select" id="courseType" [(ngModel)]="Course.type">
                                     <option value="Physical" selected>Physical</option>
                                     <option value="Online">Online</option>
                                     <option value="Physical/Online">Physical/Online</option>
@@ -69,7 +69,7 @@
                                 </button>
                             </div>
                             <div class="action-button-container">
-                                <button type="button" class="btn text-white bg-black fw-bold action-button">
+                                <button type="button" class="btn text-white bg-black fw-bold action-button" (click)="addCourse()">
                                     Add Course
                                 </button>
                             </div>
