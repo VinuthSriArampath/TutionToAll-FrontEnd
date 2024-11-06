@@ -3,6 +3,9 @@ import { LoginformComponent } from './common/loginform/loginform.component';
 import { InstituteRegistrationComponent } from './pages/institute/institute-registration/institute-registration.component';
 import { InstituteRegistrationOtpComponent } from './pages/institute/institute-registration-otp/institute-registration-otp.component';
 import { ChangePasswordComponent } from './common/change-password/change-password.component';
+import { StudentDashboardComponent } from './pages/student/student-dashboard/student-dashboard.component';
+import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/teacher-dashboard.component';
+import { InstituteDashboardComponent } from './pages/institute/institute-dashboard/institute-dashboard.component';
 
 export const routes: Routes = [
     {
@@ -21,4 +24,16 @@ export const routes: Routes = [
         path: 'change-password',
         component: ChangePasswordComponent 
     },
+    {
+        path:'student/dashboard',
+        component: StudentDashboardComponent
+    },
+    {
+        path:'teacher/dashboard',
+        component: TeacherDashboardComponent
+    },
+    {
+        path:'institute/dashboard',
+        component: InstituteDashboardComponent
+    }
 ];
