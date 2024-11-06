@@ -3,7 +3,6 @@ import { LoginformComponent } from './common/loginform/loginform.component';
 import { InstituteRegistrationComponent } from './pages/institute/institute-registration/institute-registration.component';
 import { InstituteRegistrationOtpComponent } from './pages/institute/institute-registration-otp/institute-registration-otp.component';
 import { ChangePasswordComponent } from './common/change-password/change-password.component';
-import { ChangePasswordConfirmAccountComponent } from './common/change-password/change-password-confirm-account/change-password-confirm-account.component';
 
 export const routes: Routes = [
     {
@@ -20,10 +19,6 @@ export const routes: Routes = [
     },
     {
         path: 'change-password',
-        component: ChangePasswordComponent
+        component: ChangePasswordComponent 
     },
-    {
-        path: 'change-password/confirm',
-        component: ChangePasswordConfirmAccountComponent
-    }
 ];

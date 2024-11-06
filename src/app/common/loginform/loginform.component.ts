@@ -1,14 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import swal from 'sweetalert2';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Hearder1Component } from "../headers/hearder-1/hearder-1.component";
 
 @Component({
   selector: 'app-loginform',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule, Hearder1Component],
+  imports: [FormsModule, CommonModule, RouterLink, Hearder1Component],
   templateUrl: './loginform.component.html',
   styleUrl: './loginform.component.css'
 })

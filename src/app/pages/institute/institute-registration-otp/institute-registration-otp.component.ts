@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { InstituteRegistrationComponent } from '../institute-registration/institute-registration.component';
 import swal from 'sweetalert2';
 import { Hearder1Component } from "../../../common/headers/hearder-1/hearder-1.component";
@@ -10,7 +10,7 @@ import { Hearder1Component } from "../../../common/headers/hearder-1/hearder-1.c
 @Component({
   selector: 'app-institute-registration-otp',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule, Hearder1Component],
+  imports: [FormsModule, CommonModule,Hearder1Component],
   templateUrl: './institute-registration-otp.component.html',
   styleUrl: './institute-registration-otp.component.css'
 })
