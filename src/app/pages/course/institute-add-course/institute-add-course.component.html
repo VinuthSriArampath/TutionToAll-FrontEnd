@@ -1,8 +1,8 @@
 <div class="container-fluid vh-100 d-flex flex-column">
     <app-institute-navbar></app-institute-navbar>
     <div class="row justify-content-center py-3">
-        <div class="col-11 col-lg-10 form-container">
-            <div class="container bg-white rounded-4 shadow p-5 my-5">
+        <div class="col-11 col-lg-10 form-container shadow-lg">
+            <div class="container bg-white rounded-4  p-5 my-5">
                 <div class="row mb-4">
                     <div class="col-12">
                         <h1 class="text-center subheader-text">Add Course</h1>
@@ -62,9 +62,9 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-12">
-                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+                        <div class=" flex-column flex-md-row d-flex justify-content-center align-items-center gap-3">
                             <div class="action-button-container">
-                                <button type="button" class="btn text-black border-1 border-black fw-bold action-button">
+                                <button type="button" class="btn text-black border-1 border-black fw-bold action-button" (click)="cancel()">
                                     Cancel
                                 </button>
                             </div>

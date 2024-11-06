@@ -55,4 +55,8 @@ export class InstituteAddCourseComponent {
       courseType:""
     }
   }
+
+  public cancel(){
+    this.clearData();
+  }
 }
