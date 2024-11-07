@@ -9,6 +9,7 @@ import { InstituteDashboardComponent } from './pages/institute/institute-dashboa
 import { InstituteAddCourseComponent } from './pages/course/institute-add-course/institute-add-course.component';
 import { InstituteRegisterTeacherComponent } from './pages/teacher/institute-register-teacher/institute-register-teacher.component';
 import { InstituteRegisterStudentComponent } from './pages/student/institute-register-student/institute-register-student.component';
+import { InstituteProfileComponent } from './pages/institute/institute-profile/institute-profile.component';
 
 export const routes: Routes = [
     {
@@ -50,5 +51,9 @@ export const routes: Routes = [
     {
         path:'institute/student/add-student',
         component: InstituteRegisterStudentComponent
+    },
+    {
+        path:'institute/profile',
+        component: InstituteProfileComponent
     }
 ];
