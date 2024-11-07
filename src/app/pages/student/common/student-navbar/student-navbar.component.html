@@ -8,14 +8,14 @@
           <li><a routerLink="/student/dashboard" class="nav-link px-2 link-body-emphasis">Dashboard</a></li>
           <li><a href="#" class="nav-link px-2 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">My Courses</a>
             <ul class="dropdown-menu text-small">
-                <li><a class="dropdown-item" href="#">Leave Course</a></li>
-                <li><a class="dropdown-item" href="#">Search Course</a></li>
+                <li><a class="dropdown-item" routerLink="#">Leave Course</a></li>
+                <li><a class="dropdown-item" routerLink="#">Search Course</a></li>
             </ul>
           </li>
           <li><a href="#" class="nav-link px-2 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">My Institutes</a>
             <ul class="dropdown-menu text-small">
-                <li><a class="dropdown-item" href="#">Leave Institutes </a></li>
-                <li><a class="dropdown-item" href="#">Search Institutes</a></li>
+                <li><a class="dropdown-item" routerLink="#">Leave Institutes </a></li>
+                <li><a class="dropdown-item" routerLink="#">Search Institutes</a></li>
             </ul>
           </li>
         </ul>
@@ -24,7 +24,7 @@
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small"> 
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/student/profile">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
           </ul>
