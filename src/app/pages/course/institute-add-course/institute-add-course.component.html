@@ -40,22 +40,23 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
+                                <label for="searchTeacher" class="form-label text-dark fw-bold">Search Teacher Id :- </label>
                                 <div class="d-flex gap-2">
-                                    <input type="text" class="form-control" placeholder="Search Teacher">
-                                    <button type="button" class="btn text-white fw-bold bg-black px-4">Search</button>
+                                    <input type="text" id="searchTeacher" class="form-control" placeholder="Search Teacher" [(ngModel)]="teacher.teacherId">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4" (click)="searchTeacher()">Search</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3" *ngIf="isSearched">
                             <div class="col-12">
-                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :-</label>
-                                <input type="text" class="form-control" id="teacherId" placeholder="Teacher ID">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :- </label>
+                                <input type="text" class="form-control" id="teacherId" placeholder="Teacher ID" [(ngModel)]="teacher.teacherId"  disabled="true" >
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-3" *ngIf="isSearched">
                             <div class="col-12">
                                 <label for="teacherName" class="form-label text-dark fw-bold">Teacher Name :-</label>
-                                <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name">
+                                <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name" [(ngModel)]="teacher.teacherName" disabled="true">
                             </div>
                         </div>
                     </div>
