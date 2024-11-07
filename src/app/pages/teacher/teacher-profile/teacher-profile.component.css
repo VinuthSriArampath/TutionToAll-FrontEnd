@@ -1,0 +1,9 @@
+.main-container{
+    width: 90%;
+    max-width: 1200px;
+    background-color: #DDF2FF;
+    border: 1px solid #02748D;
+}
+.edit-anchor{
+    cursor: pointer;
+}
