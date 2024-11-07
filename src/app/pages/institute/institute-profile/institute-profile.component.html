@@ -19,13 +19,7 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-6 d-flex justify-content-start ">
-                                        <label for="UserName">UserName</label>
-                                    </div>
-                                    <div class="col-6 d-flex justify-content-end ">
-                                        <a class="text-decoration-none text-black fw-bolder edit-anchor">Edit</a>
-                                    </div>
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" id="UserName" placeholder="Institute UserName">
+                                        <label class="fw-bold">UserName :- {{institute.id}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -37,10 +31,10 @@
                                         <label for="Name">Name</label>
                                     </div>
                                     <div class="col-6 d-flex justify-content-end ">
-                                        <a class="text-decoration-none text-black fw-bolder edit-anchor">Edit</a>
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" id="Name" placeholder="Institute Name">
+                                        <input type="text" class="form-control" id="Name" placeholder="Institute Name" [(ngModel)]="institute.name" [disabled]="!isEdit">
                                     </div>
                                 </div>
                             </div>
@@ -52,10 +46,10 @@
                                         <label for="Contact">Contact No</label>
                                     </div>
                                     <div class="col-6 d-flex justify-content-end ">
-                                        <a class="text-decoration-none text-black fw-bolder edit-anchor">Edit</a>
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="form-control" id="Contact" placeholder="Institute Contact">
+                                        <input type="text" class="form-control" id="Contact" placeholder="Institute Contact" [(ngModel)]="institute.contact" [disabled]="!isEdit">
                                     </div>
                                 </div>
                             </div>
@@ -67,10 +61,10 @@
                                         <label for="Email">Email</label>
                                     </div>
                                     <div class="col-6 d-flex justify-content-end ">
-                                        <a class="text-decoration-none text-black fw-bolder edit-anchor">Edit</a>
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
                                     </div>
                                     <div class="col-12">
-                                        <input type="Email" class="form-control" id="Email" placeholder="Institute Email">
+                                        <input type="Email" class="form-control" id="Email" placeholder="Institute Email" [(ngModel)]="institute.email" [disabled]="!isEdit">
                                     </div>
                                 </div>
                             </div>
@@ -82,10 +76,10 @@
                                         <label for="Address">Address</label>
                                     </div>
                                     <div class="col-6 d-flex justify-content-end ">
-                                        <a (click)="editSwitch()" class="text-decoration-none text-black fw-bolder edit-anchor">Edit</a>
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
                                     </div>
                                     <div class="col-12">
-                                        <textarea name="institute-address" id="Address" cols="30" rows="2" class="form-control" placeholder="Institute Address"></textarea>
+                                        <textarea name="institute-address" id="Address" cols="30" rows="2" class="form-control" placeholder="Institute Address" [(ngModel)]="institute.address" [disabled]="!isEdit"></textarea>
                                     </div>
                                 
                                 </div>
@@ -96,12 +90,12 @@
                                 <a routerLink="/change-password"class="text-decoration-none text-black fw-bold">Change Password From Here ...</a>
                             </div>
                         </div>
-                        <div class="row my-3">
+                        <div class="row my-3" *ngIf="isEdit">
                             <div class="col-12 col-md-6 mb-3">
-                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100">Cancel</button>
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Update</button>
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="update()">Update</button>
                             </div>
                         </div>
 
