@@ -37,7 +37,6 @@ export class StudentProfileComponent {
   }
   update(){
     if(this.validateStudent()){
-      console.log(this.student);
       this.http.patch(`http://localhost:8080/students/update`,this.student).subscribe((res:any)=>{
         this.alertMessage("student Details Updated Successfully","success");
         this.isEdit = false;

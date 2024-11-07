@@ -37,7 +37,6 @@ export class InstituteProfileComponent {
   }
   update(){
     if(this.validateInstitute()){
-      console.log(this.institute);
       this.http.patch(`http://localhost:8080/institutes/update`,this.institute).subscribe((res:any)=>{
         this.alertMessage("Institute Details Updated Successfully","success");
         this.isEdit = false;
