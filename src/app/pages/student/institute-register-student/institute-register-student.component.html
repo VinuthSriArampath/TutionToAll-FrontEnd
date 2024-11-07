@@ -1,1 +1,93 @@
-<p>institute-register-student works!</p>
+<div class="container-fluid"> 
+    <div class="row">
+        <app-institute-navbar></app-institute-navbar>
+    </div>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center p-5">
+            <div class="row form-container rounded-4 shadow-lg p-5 d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Student Registration</h1>
+                </div>
+                <div class="col-12">
+                    <div class="container bg-white rounded-4 my-3 p-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <input type="checkbox" name="RegisteredTeacher" id="RegisteredTeacher" class="me-2 form-check-input border-black" [(ngModel)]="isRegistered">
+                                <label for="RegisteredTeacher" class="form-check-label fw-bold">Registered Student</label>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isRegistered">
+                            <div class="col-12">
+                                <div class="d-flex gap-2" >
+                                    <input type="text" class="form-control" placeholder="Search Student" [(ngModel)]="studentId">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="searchStudent()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <h3 class="fw-bold">Student Details</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :- {{isRegistered ? student.firstName : ''}}</label>
+                                <input type="text" class="form-control" id="teacherFirstName" placeholder="First Name" *ngIf="!isRegistered" [(ngModel)]="student.firstName">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :- {{isRegistered ? student.lastName : ''}}</label>
+                                <input type="text" class="form-control" id="teacherLastName" placeholder="Last Name" *ngIf="!isRegistered" [(ngModel)]="student.lastName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherContact" class="form-label text-dark fw-bold">Contact :- {{isRegistered ? student.contact : ''}}</label>
+                                <input type="text" class="form-control" id="teacherContact" placeholder="Contact" *ngIf="!isRegistered" [(ngModel)]="student.contact">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherEmail" class="form-label text-dark fw-bold">Email :- {{isRegistered ? student.email : ''}}</label>
+                                <input type="email" class="form-control" id="teacherEmail" placeholder="Email" *ngIf="!isRegistered" [(ngModel)]="student.email">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :- {{isRegistered ? student.dob : ''}}</label>
+                                <input type="date" class="form-control" id="teacherDateOfBirth" *ngIf="!isRegistered" [(ngModel)]="student.dob">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="teacherAddress" class="form-label text-dark fw-bold">Address :- {{isRegistered ? student.address : ''}}</label>
+                                <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3" *ngIf="!isRegistered" [(ngModel)]="student.address"></textarea>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="!isRegistered">
+                            <div class="col-12">
+                                <h3 class="fw-bold my-3">Student Login Details</h3>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="!isRegistered">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherPassword" class="form-label text-dark fw-bold">Password :-</label>
+                                <input type="password" class="form-control" id="teacherPassword" placeholder="Password" [(ngModel)]="student.password">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherConfirmPassword" class="form-label text-dark fw-bold">Confirm Password :-</label>
+                                <input type="password" class="form-control" id="teacherConfirmPassword" placeholder="Confirm Password" [(ngModel)]="ConfirmPassword">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="isRegistered ?AddTeacher()  : registerStudent()">
+                                    {{isRegistered ? 'Add' : 'Register'}} 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
