@@ -6,19 +6,19 @@
         <div class="col-12 col-md-4">
             <div class="p-3 border bg-light rounded text-center fw-bolder fs-4 shadow-lg">
                 <div class="row"><p>No Of Students</p></div>
-                <div class="row"><p>100</p></div>
+                <div class="row"><p>{{noOfStudents}}</p></div>
             </div>
         </div>
         <div class="col-12 col-md-4">
             <div class="p-3 border bg-light rounded text-center fw-bolder fs-4 shadow-lg">
                 <div class="row"><p>No Of Teachers</p></div>
-                <div class="row"><p>100</p></div>
+                <div class="row"><p>{{noOfTeachers}}</p></div>
             </div>
         </div>
         <div class="col-12 col-md-4">
             <div class="p-3 border bg-light rounded text-center fw-bolder fs-4 shadow-lg">
                 <div class="row "><p>No Of Courses</p></div>
-                <div class="row"><p>100</p></div>
+                <div class="row"><p>{{noOfCourses}}</p></div>
             </div>
         </div>
     </div>
@@ -26,6 +26,26 @@
         <div class="col-12">
             <div class="p-3 border bg-light rounded text-center fw-bolder fs-4 shadow-lg">
                 <div class="row "><p>Course Details</p></div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover small">
+                        <thead>
+                            <tr class="text-sm">
+                                <th scope="col">#</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Course Name</th>
+                                <th scope="col">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let course of courseList; index as i">
+                                <td>{{i+1}}</td>
+                                <td>{{course.id}}</td>
+                                <td>{{course.name}}</td>
+                                <td>{{course.type}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
