@@ -93,8 +93,6 @@ export class InstituteAddCourseComponent {
     }
   }
   addTeacherToCourse(courseId: any) {
-    console.log(courseId);
-    console.log(this.teacher.teacherId);
     this.http.post(`http://localhost:8080/courses/${courseId}/teachers/add/${this.teacher.teacherId}`,{}).subscribe();
     this.clearData();
     this.alertMessage('Course Added Successfully', 'success');
