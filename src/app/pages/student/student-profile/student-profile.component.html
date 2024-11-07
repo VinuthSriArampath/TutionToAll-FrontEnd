@@ -1,1 +1,141 @@
-<p>student-profile works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <app-student-navbar></app-student-navbar>
+    </div>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center rounded-3  p-5">
+            <div class="row main-container d-flex justify-content-center align-items-center shadow-lg rounded-4 p-5">
+                <div class="col-12">
+                    <h1 class="subheader-text text-center">Your Profile</h1>
+                </div>
+                <div class="col-12">
+                    <div class="container bg-white rounded-4 my-3 p-5">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <h3 class="fw-bold">Student Details</h3>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label class="fw-bold">UserName :- {{student.id}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Name">First Name</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="Name" placeholder="student Name" [(ngModel)]="student.firstName" [disabled]="!isEdit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Name">Last Name</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="Name" placeholder="student Name" [(ngModel)]="student.lastName" [disabled]="!isEdit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Name">Date Of Birth</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="date" class="form-control" id="Name" placeholder="student Name" [(ngModel)]="student.dob" [disabled]="!isEdit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Contact">Contact No</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="Contact" placeholder="student Contact" [(ngModel)]="student.contact" [disabled]="!isEdit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Email">Email</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="Email" class="form-control" id="Email" placeholder="student Email" [(ngModel)]="student.email" [disabled]="!isEdit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6 d-flex justify-content-start ">
+                                        <label for="Address">Address</label>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-end ">
+                                        <a class="text-decoration-none text-black fw-bolder edit-anchor" (click)="editSwitch()">Edit</a>
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="student-address" id="Address" cols="30" rows="2" class="form-control" placeholder="student Address" [(ngModel)]="student.address" [disabled]="!isEdit"></textarea>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-12">
+                            <div class="col-12">
+                                <a routerLink="/change-password"class="text-decoration-none text-black fw-bold">Change Password From Here ...</a>
+                            </div>
+                        </div>
+                        <div class="row my-3" *ngIf="isEdit">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="update()">Update</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
