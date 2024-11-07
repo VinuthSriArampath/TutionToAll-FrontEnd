@@ -19,8 +19,8 @@
                         <div class="row" *ngIf="isRegistered">
                             <div class="col-12">
                                 <div class="d-flex gap-2" >
-                                    <input type="text" class="form-control" placeholder="Search Teacher">
-                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">Search</button>
+                                    <input type="text" class="form-control" placeholder="Search Teacher" [(ngModel)]="teacherId">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="searchTeacher()">Search</button>
                                 </div>
                             </div>
                         </div>
@@ -29,32 +29,32 @@
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :-</label>
-                                <input type="text" class="form-control" id="teacherFirstName" placeholder="First Name">
+                                <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :- {{isRegistered ? teacher.firstName : ''}}</label>
+                                <input type="text" class="form-control" id="teacherFirstName" placeholder="First Name" *ngIf="!isRegistered" [(ngModel)]="teacher.firstName">
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :-</label>
-                                <input type="text" class="form-control" id="teacherLastName" placeholder="Last Name">
+                                <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :- {{isRegistered ? teacher.lastName : ''}}</label>
+                                <input type="text" class="form-control" id="teacherLastName" placeholder="Last Name" *ngIf="!isRegistered" [(ngModel)]="teacher.lastName">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 col-md-4 mb-3">
-                                <label for="teacherContact" class="form-label text-dark fw-bold">Contact :-</label>
-                                <input type="text" class="form-control" id="teacherContact" placeholder="Contact">
+                                <label for="teacherContact" class="form-label text-dark fw-bold">Contact :- {{isRegistered ? teacher.contact : ''}}</label>
+                                <input type="text" class="form-control" id="teacherContact" placeholder="Contact" *ngIf="!isRegistered" [(ngModel)]="teacher.contact">
                             </div>
                             <div class="col-12 col-md-4 mb-3">
-                                <label for="teacherEmail" class="form-label text-dark fw-bold">Email :-</label>
-                                <input type="email" class="form-control" id="teacherEmail" placeholder="Email">
+                                <label for="teacherEmail" class="form-label text-dark fw-bold">Email :- {{isRegistered ? teacher.email : ''}}</label>
+                                <input type="email" class="form-control" id="teacherEmail" placeholder="Email" *ngIf="!isRegistered" [(ngModel)]="teacher.email">
                             </div>
                             <div class="col-12 col-md-4 mb-3">
-                                <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :-</label>
-                                <input type="date" class="form-control" id="teacherDateOfBirth">
+                                <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :- {{isRegistered ? teacher.dob : ''}}</label>
+                                <input type="date" class="form-control" id="teacherDateOfBirth" *ngIf="!isRegistered" [(ngModel)]="teacher.dob">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <label for="teacherAddress" class="form-label text-dark fw-bold">Address :-</label>
-                                <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3"></textarea>
+                                <label for="teacherAddress" class="form-label text-dark fw-bold">Address :- {{isRegistered ? teacher.address : ''}}</label>
+                                <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3" *ngIf="!isRegistered" [(ngModel)]="teacher.address"></textarea>
                             </div>
                         </div>
                         <div class="row" *ngIf="!isRegistered">
@@ -65,11 +65,11 @@
                         <div class="row" *ngIf="!isRegistered">
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="teacherPassword" class="form-label text-dark fw-bold">Password :-</label>
-                                <input type="password" class="form-control" id="teacherPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="teacherPassword" placeholder="Password" [(ngModel)]="teacher.password">
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="teacherConfirmPassword" class="form-label text-dark fw-bold">Confirm Password :-</label>
-                                <input type="password" class="form-control" id="teacherConfirmPassword" placeholder="Confirm Password">
+                                <input type="password" class="form-control" id="teacherConfirmPassword" placeholder="Confirm Password" [(ngModel)]="ConfirmPassword">
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -77,8 +77,8 @@
                                 <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100">
-                                    {{isRegistered ? 'Add' : 'Register'}}
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="isRegistered ?AddTeacher()  : registerTeacher()">
+                                    {{isRegistered ? 'Add' : 'Register'}} 
                                 </button>
                             </div>
                         </div>
