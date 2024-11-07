@@ -11,6 +11,7 @@ import { InstituteRegisterTeacherComponent } from './pages/teacher/institute-reg
 import { InstituteRegisterStudentComponent } from './pages/student/institute-register-student/institute-register-student.component';
 import { InstituteProfileComponent } from './pages/institute/institute-profile/institute-profile.component';
 import { StudentProfileComponent } from './pages/student/student-profile/student-profile.component';
+import { TeacherProfileComponent } from './pages/teacher/teacher-profile/teacher-profile.component';
 
 export const routes: Routes = [
     {
@@ -60,5 +61,9 @@ export const routes: Routes = [
     {
         path:'student/profile',
         component: StudentProfileComponent
+    },
+    {
+        path:'teacher/profile',
+        component: TeacherProfileComponent
     }
 ];
