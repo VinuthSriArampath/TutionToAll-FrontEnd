@@ -8,6 +8,7 @@ import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/tea
 import { InstituteDashboardComponent } from './pages/institute/institute-dashboard/institute-dashboard.component';
 import { InstituteAddCourseComponent } from './pages/course/institute-add-course/institute-add-course.component';
 import { InstituteRegisterTeacherComponent } from './pages/teacher/institute-register-teacher/institute-register-teacher.component';
+import { InstituteRegisterStudentComponent } from './pages/student/institute-register-student/institute-register-student.component';
 
 export const routes: Routes = [
     {
@@ -45,5 +46,9 @@ export const routes: Routes = [
     {
         path:'institute/teacher/add-teacher',
         component: InstituteRegisterTeacherComponent
+    },
+    {
+        path:'institute/student/add-student',
+        component: InstituteRegisterStudentComponent
     }
 ];
