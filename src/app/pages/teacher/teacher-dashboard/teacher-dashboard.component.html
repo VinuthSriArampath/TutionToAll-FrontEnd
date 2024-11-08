@@ -1,1 +1,31 @@
-<app-teacher-navbar></app-teacher-navbar>
+<div class="container-fluid">
+    <div class="row">
+        <app-teacher-navbar></app-teacher-navbar>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-12">
+                        <div class="p-3 rounded fw-bolder fs-4" *ngFor="let institute of instituteList ; let i=index">
+                            <div class="row"><p>{{institute.name}}</p></div>
+                            <div class="row">
+                                <div class="card bg-transparent border-0" style="width: 18rem;" *ngFor="let course of instituteCourseList[i]">
+                                    <img src="ICT.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-Title text-center">{{course.name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
+
