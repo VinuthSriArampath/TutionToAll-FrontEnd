@@ -4,11 +4,12 @@ import { FooterComponent } from "../../../common/footer/footer.component";
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-dashboard',
   standalone: true,
-  imports: [TeacherNavbarComponent, FooterComponent,FormsModule,CommonModule],
+  imports: [TeacherNavbarComponent, FooterComponent,FormsModule,CommonModule,RouterLink],
   templateUrl: './teacher-dashboard.component.html',
   styleUrl: './teacher-dashboard.component.css'
 })

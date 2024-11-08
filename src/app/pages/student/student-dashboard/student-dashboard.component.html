@@ -2,28 +2,33 @@
     <div class="row">
         <app-student-navbar></app-student-navbar>
     </div>
-    <div class="row">
+    
+    <div class="row my-4">
         <div class="col-12">
-            <div class="container" >
-                <div class="row">
-                    <div class="col-12">
-                        <div class="p-3 rounded fw-bolder fs-4" *ngFor="let institute of instituteList">
-                            <div class="row"><p>{{institute.instituteName}}</p></div>
-                            <div class="row">
-                                <div class="card bg-transparent border-0" style="width: 18rem;" *ngFor="let course of institute.courses" >
-                                    <img src="ICT.jpeg" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-Title text-center">{{course.courseName}}</p>
-                                    </div>
+            <div class="container">
+                <!-- Institute Section -->
+                <div class="institute-section mb-4" *ngFor="let institute of instituteList">
+                    <!-- Institute Name -->
+                    <h2 class="institute-title mb-4 ps-3 border-start border-4 border-primary">
+                        {{institute.instituteName}}
+                    </h2>
+                    
+                    <!-- Course Cards -->
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                        <div class="col" *ngFor="let course of institute.courses">
+                            <div class="card h-100 shadow-sm hover-effect" routerLink="/student/profile">
+                                <img src="Sceince Bg.jpeg" class="card-img-top" alt="Course Image">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-0">{{course.courseName}}</h5>
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         <app-footer></app-footer>
     </div>

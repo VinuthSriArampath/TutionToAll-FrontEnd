@@ -4,6 +4,7 @@ import { FooterComponent } from '../../../common/footer/footer.component';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     NgFor,
+    RouterLink
   ],
   templateUrl: './student-dashboard.component.html',
   styleUrl: './student-dashboard.component.css',
