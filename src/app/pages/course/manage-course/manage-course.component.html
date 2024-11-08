@@ -2,8 +2,105 @@
     <div class="row">
         <app-institute-navbar></app-institute-navbar>
     </div>
-    <div class="row">
-        
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 main-container rounded-5 p-5">
+            <div class="container">
+                <div class="row my-3">
+                    <div class="col-12 text-center">
+                        <h1 class="subheader-text">Manage Course Students</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container bg-white rounded-3 px-5 py-3">
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <input type="text" class="form-control py-2" placeholder="Search by Course Id" [(ngModel)]="searchCourseId">
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn text-white fw-bold bg-black px-5 py-2" (click)="searchCourse()">Search</button>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseName" class="form-label fw-bold">Course Name :- {{course.name}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseType" class="form-label fw-bold">Course Type :- {{course.type}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="teacherId" class="form-label fw-bold">Teacher Id :- {{course.teacherId}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseName" class="form-label fw-bold">Teacher Name :- {{course.teacherName}}</label>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <input type="text" class="form-control py-2" placeholder="Search by Student By Id" [(ngModel)]="searchStudentId">
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn text-white fw-bold bg-black px-5 py-2" (click)="searchStudent()">Search</button>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseName" class="form-label fw-bold">First Name :- {{searchedStudent.firstName}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseType" class="form-label fw-bold">Last Name :- {{searchedStudent.lastName}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="teacherId" class="form-label fw-bold">Contact :- {{searchedStudent.contact}}</label>
+                            </div>
+                            <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-3">
+                                <label for="courseName" class="form-label fw-bold">Email :- {{searchedStudent.email}}</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5" *ngIf="isStudentSearched">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="addStudentToCourse()">
+                                    {{isStudentSearched ? 'Add' : 'Register'}} 
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Id</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let student of courseStudentList;let i=index">
+                                                <td>{{i+1}}</td>
+                                                <td>{{student.id}}</td>
+                                                <td>{{student.firstName}}</td>
+                                                <td>{{student.lastName}}</td>
+                                                <td>{{student.email}}</td>
+                                                <td>{{student.contact}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="row">
         <app-footer></app-footer>
