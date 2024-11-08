@@ -35,7 +35,8 @@ export class InstituteAddCourseComponent {
   private instituteId: any;
   addCourse() {
     if (this.validateDetails()) {
-      if (this.isSearched) {this.http.post(`http://localhost:8080/courses/add/${this.instituteId}`,this.Course).subscribe((res: any) => {
+      if (this.isSearched) {
+          this.http.post(`http://localhost:8080/courses/add/${this.instituteId}`,this.Course).subscribe((res: any) => {
             this.addTeacherToCourse(res);
           });
       } else {
@@ -44,11 +45,11 @@ export class InstituteAddCourseComponent {
     }
   }
   private validateDetails(): boolean {
-    if (this.Course.courseName == '') {
+    if (this.Course.name === '') {
       this.alertMessage('Course Name is Required', 'error');
       return false;
     }
-    if (this.Course.courseType == '') {
+    if (this.Course.type === '') {
       this.alertMessage('Course Type is Required', 'error');
       return false;
     }
