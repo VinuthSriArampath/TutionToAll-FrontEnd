@@ -13,6 +13,7 @@ import { InstituteProfileComponent } from './pages/institute/institute-profile/i
 import { StudentProfileComponent } from './pages/student/student-profile/student-profile.component';
 import { TeacherProfileComponent } from './pages/teacher/teacher-profile/teacher-profile.component';
 import { ManageCourseComponent } from './pages/course/manage-course/manage-course.component';
+import { UpdateCourseComponent } from './pages/course/update-course/update-course.component';
 
 export const routes: Routes = [
     {
@@ -70,5 +71,9 @@ export const routes: Routes = [
     {
         path:'institute/course/manage',
         component: ManageCourseComponent 
+    },
+    {
+        path:'institute/course/update',
+        component: UpdateCourseComponent
     }
 ];
