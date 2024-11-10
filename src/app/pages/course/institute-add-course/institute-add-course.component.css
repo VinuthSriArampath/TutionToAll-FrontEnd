@@ -39,11 +39,10 @@
         font-size: 1.5rem;
     }
     .subheader-text {
-        font-size: 1.5rem !important;
+        font-size: 1.5rem ;
     }
 }
 
-/* Ensure inputs and buttons maintain proper spacing on mobile */
 .btn {
     min-height: 40px;
 }
@@ -52,12 +51,10 @@
     min-height: 40px;
 }
 
-/* Prevent content from being hidden behind footer */
 .container-fluid {
     padding-bottom: 60px;
 }
 
-/* Update the action button related styles */
 .action-button-container {
     width: 100%;
     max-width: 200px;
@@ -72,6 +69,6 @@
 
 @media (max-width: 768px) {
     .action-button-container {
-        width: 80%; /* Makes buttons slightly smaller on mobile */
+        width: 80%;
     }
 }

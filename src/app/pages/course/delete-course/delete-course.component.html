@@ -1,1 +1,64 @@
-<p>delete-course works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <app-institute-navbar></app-institute-navbar>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="container  main-container rounded-5 p-5 shadow-lg my-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Delete Course</h1>
+                </div>
+            </div>
+            <div class="container bg-white rounded-4  p-5 my-5">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                        <label for="courseId" class="form-label text-dark fw-bold">Course Id :- </label>
+                        <div class="d-flex gap-2">
+                            <input type="text" class="form-control" id="courseId" placeholder="Course Id">
+                            <button type="button"
+                                class="btn text-white fw-bold bg-black px-2 px-md-3 px-sm-2">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="courseName" class="form-label text-dark fw-bold">Course Name :- </label>
+                                <input type="text" class="form-control" id="courseName" placeholder="Course Name">
+                            </div>
+                            <div class="col-12">
+                                <label for="courseType" class="form-label text-dark fw-bold">Course Type :- </label>
+                                <input type="text" class="form-control" id="courseType" placeholder="Course Type">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :- </label>
+                                <input type="text" class="form-control" id="teacherId" placeholder="Teacher Name">
+                            </div>
+                            <div class="col-12">
+                                <label for="teacherName" class="form-label text-dark fw-bold">Teacher Name :- </label>
+                                <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
