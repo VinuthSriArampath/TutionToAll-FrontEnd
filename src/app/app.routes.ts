@@ -17,6 +17,7 @@ import { UpdateCourseComponent } from './pages/course/update-course/update-cours
 import { DeleteCourseComponent } from './pages/course/delete-course/delete-course.component';
 import { SearchCourseComponent } from './pages/course/search-course/search-course.component';
 import { UpdateStudentComponent } from './pages/student/update-student/update-student.component';
+import { InstituteRemoveStudentComponent } from './pages/student/institute-remove-student/institute-remove-student.component';
 
 export const routes: Routes = [
     {
@@ -90,5 +91,9 @@ export const routes: Routes = [
     {
         path: 'institute/student/update',
         component: UpdateStudentComponent
+    },
+    {
+        path: 'institute/student/delete',
+        component: InstituteRemoveStudentComponent
     }
 ];
