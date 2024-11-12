@@ -16,6 +16,7 @@ import { ManageCourseComponent } from './pages/course/manage-course/manage-cours
 import { UpdateCourseComponent } from './pages/course/update-course/update-course.component';
 import { DeleteCourseComponent } from './pages/course/delete-course/delete-course.component';
 import { SearchCourseComponent } from './pages/course/search-course/search-course.component';
+import { UpdateStudentComponent } from './pages/student/update-student/update-student.component';
 
 export const routes: Routes = [
     {
@@ -85,5 +86,9 @@ export const routes: Routes = [
     {
         path:'institute/course/search',
         component: SearchCourseComponent
+    },
+    {
+        path: 'institute/student/update',
+        component: UpdateStudentComponent
     }
 ];
