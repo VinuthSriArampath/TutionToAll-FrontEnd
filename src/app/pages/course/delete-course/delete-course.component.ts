@@ -30,7 +30,7 @@ export class DeleteCourseComponent {
 
   public isCourseSearched: boolean = false;
   private instituteId: string;
-
+  public students:any[]=[];
   constructor(private http: HttpClient){
     this.instituteId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;  
   }
@@ -38,9 +38,24 @@ export class DeleteCourseComponent {
     if (this.searchedCourseId == '') {
       this.alert('Please enter a course id', 'error');
     }else{
-      this.http.get(`http://localhost:8080/courses/search/${this.searchedCourseId}/institute/${this.instituteId}`).subscribe((res:any)=>{
-        if(res){
-          this.course=res;
+      this.http.get(`http://localhost:8080/courses/search/${this.searchedCourseId}/institute/${this.instituteId}`).subscribe((resCourse:any)=>{
+        if(resCourse){
+          console.log(resCourse);
+          for(let student of resCourse.studentCoursesList){
+            this.http.get(`http://localhost:8080/students/search/${student.studentId}`).subscribe((res:any)=>{
+              this.students.push({
+                id:res.id,
+                fName:res.firstName,
+                lName:res.lastName,
+                email:res.email,
+                phone:res.contact,
+                enrollmentDate:student.date
+              });
+            })
+          }
+          console.log(this.students);
+          
+          this.course=resCourse;
           this.isCourseSearched=true;
         }else{
           this.alert('Course not found on this '+this.instituteId, 'error');

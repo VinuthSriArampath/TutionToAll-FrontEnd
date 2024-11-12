@@ -15,6 +15,7 @@ import { TeacherProfileComponent } from './pages/teacher/teacher-profile/teacher
 import { ManageCourseComponent } from './pages/course/manage-course/manage-course.component';
 import { UpdateCourseComponent } from './pages/course/update-course/update-course.component';
 import { DeleteCourseComponent } from './pages/course/delete-course/delete-course.component';
+import { SearchCourseComponent } from './pages/course/search-course/search-course.component';
 
 export const routes: Routes = [
     {
@@ -80,5 +81,9 @@ export const routes: Routes = [
     {
         path:'institute/course/delete',
         component: DeleteCourseComponent
+    },
+    {
+        path:'institute/course/search',
+        component: SearchCourseComponent
     }
 ];
