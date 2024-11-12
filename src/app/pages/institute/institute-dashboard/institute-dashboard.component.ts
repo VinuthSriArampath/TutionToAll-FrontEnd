@@ -17,15 +17,12 @@ export class InstituteDashboardComponent {
   public noOfStudents:number=0;
   public noOfTeachers:number=0;
   public noOfCourses:number=0;
-  private teacherList:any[]=[];
   public courseList:any[]=[];
 
   constructor(private http:HttpClient){
     const instituteId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;
     this.http.get<any>(`http://localhost:8080/institutes/search/${instituteId}`).subscribe((res)=>{
-      this.teacherList=res.registeredTeachers;
       this.courseList=res.courseList;
-      console.log(this.courseList);
       
       this.noOfStudents=res.registeredStudents.length;
       this.noOfTeachers=res.registeredTeachers.length;
