@@ -1,1 +1,71 @@
-<p>update-student works!</p>
+<div class="container-fluid"> 
+    <div class="row">
+        <app-institute-navbar></app-institute-navbar>
+    </div>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center p-5">
+            <div class="row form-container rounded-4 shadow-lg p-5 d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Update Student</h1>
+                </div>
+                <div class="col-12">
+                    <div class="container bg-white rounded-4 my-3 p-5">       
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex gap-2" >
+                                    <input type="text" class="form-control" placeholder="Search Student" [(ngModel)]="searchedStudentId">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="searchStudent()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <h3 class="fw-bold">Student Details</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :-</label>
+                                <input type="text" class="form-control" id="teacherFirstName" placeholder="First Name" [(ngModel)]="student.firstName">
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :-</label>
+                                <input type="text" class="form-control" id="teacherLastName" placeholder="Last Name" [(ngModel)]="student.lastName">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherContact" class="form-label text-dark fw-bold">Contact :-</label>
+                                <input type="text" class="form-control" id="teacherContact" placeholder="Contact" [(ngModel)]="student.contact">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherEmail" class="form-label text-dark fw-bold">Email :-</label>
+                                <input type="email" class="form-control" id="teacherEmail" placeholder="Email" [(ngModel)]="student.email">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :-</label>
+                                <input type="date" class="form-control" id="teacherDateOfBirth" [(ngModel)]="student.dob">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="teacherAddress" class="form-label text-dark fw-bold">Address :- </label>
+                                <textarea type="text" class="form-control" id="teacherAddress" placeholder="Address" rows="3" [(ngModel)]="student.address"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="updateStudent()">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
+
