@@ -7,10 +7,19 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-delete-course',
   standalone: true,
-  imports: [InstituteNavbarComponent,FooterComponent,FormsModule,CommonModule],
+  imports: [
+    InstituteNavbarComponent,
+    FooterComponent,
+    FormsModule,
+    CommonModule,
+  ],
   templateUrl: './delete-course.component.html',
-  styleUrl: './delete-course.component.css'
+  styleUrl: './delete-course.component.css',
 })
 export class DeleteCourseComponent {
+  public searchedCourseId: String = '';
+  
+  public searchCourse(){
 
+  }
 }
