@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { InstituteNavbarComponent } from '../common/institute-navbar/institute-navbar.component';
 import { FooterComponent } from "../../../common/footer/footer.component";
-import { AppComponent } from "../../../app.component";
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-institute-dashboard',
   standalone: true,
-  imports: [InstituteNavbarComponent, FooterComponent, AppComponent,FormsModule,CommonModule],
+  imports: [InstituteNavbarComponent, FooterComponent, CommonModule],
   templateUrl: './institute-dashboard.component.html',
   styleUrl: './institute-dashboard.component.css'
 })
