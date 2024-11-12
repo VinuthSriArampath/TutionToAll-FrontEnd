@@ -14,9 +14,9 @@
             <div class="container bg-white rounded-4  p-5 my-5">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
-                        <label for="courseId" class="form-label text-dark fw-bold" [(ngModel)]="searchedCourseId">Course Id :- </label>
+                        <label for="courseId" class="form-label text-dark fw-bold" >Course Id :- </label>
                         <div class="d-flex gap-2">
-                            <input type="text" class="form-control" id="courseId" placeholder="Course Id">
+                            <input type="text" class="form-control" id="courseId" placeholder="Course Id" [(ngModel)]="searchedCourseId">
                             <button type="button"
                                 class="btn text-white fw-bold bg-black px-2 px-md-3 px-sm-2" (click)="searchCourse()">Search</button>
                         </div>
@@ -25,32 +25,36 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                         <div class="row">
-                            <div class="col-12 mb-3">
-                                <label for="courseName" class="form-label text-dark fw-bold">Course Name :- </label>
-                                <input type="text" class="form-control" id="courseName" placeholder="Course Name">
+                            <div class="col-12 mb-3"> 
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Course Name :- </label>
+                                    <label class="form-label text-dark fw-bold">{{course.name}}</label>
+                                </div>
                             </div>
-                            <div class="col-12">
-                                <label for="courseType" class="form-label text-dark fw-bold">Course Type :- </label>
-                                <input type="text" class="form-control" id="courseType" placeholder="Course Type">
+                            <div class="col-12 mb-3">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Course Type :- </label>
+                                    <label class="form-label text-dark fw-bold">{{course.type}}</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :- </label>
-                                <input type="text" class="form-control" id="teacherId" placeholder="Teacher Name">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :-</label>
+                                <label for="teacherId" class="form-label text-dark fw-bold">{{course.teacherId}}</label>
                             </div>
-                            <div class="col-12">
-                                <label for="teacherName" class="form-label text-dark fw-bold">Teacher Name :- </label>
-                                <input type="text" class="form-control" id="teacherName" placeholder="Teacher Name">
+                            <div class="col-12 mb-3">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Name :-</label>
+                                <label for="teacherId" class="form-label text-dark fw-bold">{{course.teacherName}}</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row ">
+                <div class="row" *ngIf="isCourseSearched">
                     <div class="col-12 d-flex justify-content-center">
-                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 delete-btn">Delete</button>
+                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 delete-btn" (click)="deleteCourse()">Delete</button>
                     </div>
                 </div>
             </div>
