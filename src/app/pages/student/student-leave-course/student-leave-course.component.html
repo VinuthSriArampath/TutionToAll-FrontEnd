@@ -84,9 +84,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" >
+                <div class="row" *ngIf="isCourseSearched">
                     <div class="col-12 d-flex justify-content-center">
-                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 update-btn" (click)="unRegisterCourse()">Delete</button>
+                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 update-btn" (click)="unRegisterCourse()">Leave Course</button>
                     </div>
                 </div>
             </div>

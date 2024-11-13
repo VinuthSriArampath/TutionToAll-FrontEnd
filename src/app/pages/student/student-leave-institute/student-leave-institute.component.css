@@ -1,0 +1,22 @@
+.main-container{
+    width: 80%;
+    max-width: 1200px;
+    background-color: #DDF2FF;
+    border-radius: 1rem;
+}
+.unregister-btn{
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .unregister-btn{
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .unregister-btn{
+        width: 100%;
+    }
+}
+
