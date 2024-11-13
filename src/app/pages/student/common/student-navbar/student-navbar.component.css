@@ -1,3 +1,6 @@
 .navbar-bg{
     background-color: #DDF2FF;
 }
+.btn-signOut{
+    cursor: pointer;
+}
