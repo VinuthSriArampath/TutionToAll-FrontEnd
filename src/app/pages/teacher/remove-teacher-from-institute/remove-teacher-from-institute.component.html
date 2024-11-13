@@ -1,1 +1,83 @@
-<p>remove-teacher-from-institute works!</p>
+<div class="container-fluid"> 
+    <div class="row">
+        <app-institute-navbar></app-institute-navbar>
+    </div>
+    <div class="row">
+        <div class="container d-flex justify-content-center align-items-center p-5">
+            <div class="row form-container rounded-4 shadow-lg p-5 d-flex justify-content-center align-items-center">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Remove Teacher</h1>
+                </div>
+                <div class="col-12">
+                    <div class="container bg-white rounded-4 my-3 p-5">       
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex gap-2" >
+                                    <input type="text" class="form-control" placeholder="Search Teacher" [(ngModel)]="searchedTeacherId">
+                                    <button type="button" class="btn text-white fw-bold bg-black px-4 w-100" (click)="searchTeacher()">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <h3 class="fw-bold">Teacher Details</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherFirstName" class="form-label text-dark fw-bold">First Name :-</label>
+                                    <label for="teacherFirstName" class="form-label text-dark fw-bold">{{teacher.firstName}}</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherLastName" class="form-label text-dark fw-bold">Last Name :-</label>
+                                    <label for="teacherLastName" class="form-label text-dark fw-bold">{{teacher.lastName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherContact" class="form-label text-dark fw-bold">Contact :-</label>
+                                    <label for="teacherContact" class="form-label text-dark fw-bold">{{teacher.contact}}</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherEmail" class="form-label text-dark fw-bold">Email :-</label>
+                                    <label for="teacherEmail" class="form-label text-dark fw-bold">{{teacher.email}}</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">Date of Birth :-</label>
+                                    <label for="teacherDateOfBirth" class="form-label text-dark fw-bold">{{teacher.dob}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="d-flex gap-3">
+                                    <label for="teacherAddress" class="form-label text-dark fw-bold">Address :- </label>
+                                    <label for="teacherAddress" class="form-label text-dark fw-bold">{{teacher.address}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-black border border-black fw-bold px-4 w-100" (click)="cancel()">Cancel</button>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <button type="button" class="btn text-danger fw-bold border-3 border-danger px-4 w-100" (click)="deleteTeacher()">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
+
