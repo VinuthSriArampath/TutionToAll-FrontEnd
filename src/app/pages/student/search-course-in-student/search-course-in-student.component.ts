@@ -6,6 +6,25 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from '../../../common/footer/footer.component';
 import { StudentNavbarComponent } from '../common/student-navbar/student-navbar.component';
 
+class Course {
+  courseId: string='';
+  instituteId: string='';
+  instituteName: string='';
+  courseName: string='';
+  courseType: string='';
+  teacherName: string='';
+  enrollmentDate: string='';
+  constructor(courseId:string,instituteId:string,instituteName:string,courseName:string,courseType:string,teacherName:string,enrollmentDate:string){
+    this.courseId=courseId;
+    this.instituteId=instituteId;
+    this.instituteName=instituteName;
+    this.courseName=courseName;
+    this.courseType=courseType;
+    this.teacherName=teacherName;
+    this.enrollmentDate=enrollmentDate;
+  }
+}
+
 @Component({
   selector: 'app-search-course-in-student',
   standalone: true,
@@ -15,53 +34,43 @@ import { StudentNavbarComponent } from '../common/student-navbar/student-navbar.
 })
 export class SearchCourseInStudentComponent {
   public searchedCourseId: String="";
-  public institute:any={
-    id:'',
-    name:''
-  }
-  public course : any ={
-    id:'',
-    name:'',
-    type:'',
-    teacherId:'',
-    teacherName:''
-  }
-  public students:any[]=[];
-
-  public isCourseSearched: boolean = false;
-  private instituteId: string;
-
+  public searchedCourse:Course={
+    courseId:'',
+    instituteId:'',
+    instituteName:'',
+    courseName:'',
+    courseType:'',
+    teacherName:'',
+    enrollmentDate:''
+  };
+  public courseList:Course[]=[];
   constructor(private http: HttpClient){
-    this.instituteId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;  
+    this.http.get(`http://localhost:8080/students/search/${JSON.parse(sessionStorage.getItem('LoggedUser') || '').id}`).subscribe((student:any)=>{
+      for(let institute of student.registeredInstitutes){
+        for(let course of institute.courses){
+          this.http.get(`http://localhost:8080/courses/getCourseById/${course.courseId}`).subscribe((resCourse:any)=>{
+            this.courseList.push(new Course(resCourse.id,institute.instituteId,institute.instituteName,resCourse.name,resCourse.type,resCourse.teacherName,course.date));
+          })
+        }
+      }
+      console.log(this.courseList);
+    },(err)=>{
+      console.log(err);
+    })  
   }
   public searchCourse(){
     if (this.searchedCourseId == '') {
       this.alert('Please enter a course id', 'error');
     }else{
-      this.http.get(`http://localhost:8080/courses/search/${this.searchedCourseId}/institute/${this.instituteId}`).subscribe((resCourse:any)=>{
-        if(resCourse){
-          console.log(resCourse);
-          for(let student of resCourse.studentCoursesList){
-            this.http.get(`http://localhost:8080/students/search/${student.studentId}`).subscribe((res:any)=>{
-              this.students.push({
-                id:res.id,
-                fName:res.firstName,
-                lName:res.lastName,
-                email:res.email,
-                phone:res.contact,
-                enrollmentDate:student.date
-              });
-            })
-          }
-          console.log(this.students);
-          
-          this.course=resCourse;
-          this.isCourseSearched=true;
+      for(let course of this.courseList){
+        if(course.courseId==this.searchedCourseId){
+          this.searchedCourse=course;
+          break;
         }else{
-          this.alert('Course not found on this '+this.instituteId, 'error');
+
+          this.alert('Course not found', 'error');
         }
-        
-      })
+      }
     }
   }
   private alert(title: string, type: any){
