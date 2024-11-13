@@ -20,6 +20,7 @@ import { UpdateStudentComponent } from './pages/student/update-student/update-st
 import { InstituteRemoveStudentComponent } from './pages/student/institute-remove-student/institute-remove-student.component';
 import { SearchStudentInInstituteComponent } from './pages/student/search-student-in-institute/search-student-in-institute.component';
 import { UpdateTeacherComponent } from './pages/teacher/update-teacher/update-teacher.component';
+import { RemoveTeacherFromInstituteComponent } from './pages/teacher/remove-teacher-from-institute/remove-teacher-from-institute.component';
 
 export const routes: Routes = [
     {
@@ -105,5 +106,9 @@ export const routes: Routes = [
     {
         path: 'institute/teacher/update',
         component: UpdateTeacherComponent
+    },
+    {
+        path: 'institute/teacher/remove',
+        component: RemoveTeacherFromInstituteComponent
     }
 ];
