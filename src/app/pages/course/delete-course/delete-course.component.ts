@@ -85,7 +85,7 @@ export class DeleteCourseComponent {
         })
         .then((result) => {
           if (result.isConfirmed) {
-            this.http.delete(`http://localhost:8080/courses/delete/${this.course.id}/of/${this.instituteId}`).subscribe((res:any)=>{
+            this.http.delete(`http://localhost:8080/courses/delete/${this.course.id}/from/${this.instituteId}`).subscribe((res:any)=>{
               this.alert('Course deleted successfully', 'success');
             })
           } else if (result.isDenied) {

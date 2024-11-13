@@ -13,58 +13,50 @@ import { StudentNavbarComponent } from '../common/student-navbar/student-navbar.
   styleUrl: './student-leave-institute.component.css'
 })
 export class StudentLeaveInstituteComponent {
-  public searchedCourseId: String="";
-  public institute:any={
-    id:'',
-    name:''
-  }
-  public course : any ={
-    id:'',
-    name:'',
-    type:'',
-    teacherId:'',
-    teacherName:''
-  }
-  public students:any[]=[];
-
+  public searchedInstituteId: String="";
+  public searchedInstitute:any={};
+  public instituteList:any[]=[];
   public isCourseSearched: boolean = false;
-  private instituteId: string;
-
+  private studentId: string='';
   constructor(private http: HttpClient){
-    this.instituteId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;  
+    this.studentId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;
+    this.http.get(`http://localhost:8080/students/search/${this.studentId}`).subscribe((student:any)=>{
+      for(let institute of student.registeredInstitutes){
+        this.http.get(`http://localhost:8080/institutes/search/${institute.instituteId}`).subscribe((resInstitute:any)=>{
+          this.instituteList.push(resInstitute);  
+        })
+      }
+    },(err)=>{
+      this.alert('Error in fetching courses', 'error');
+    })  
   }
-  public searchCourse(){
-    if (this.searchedCourseId == '') {
-      this.alert('Please enter a course id', 'error');
+  public searchInstitute(){
+    if (this.searchedInstituteId == '') {
+      this.alert('Please enter a institute id', 'error');
     }else{
-      this.http.get(`http://localhost:8080/courses/search/${this.searchedCourseId}/institute/${this.instituteId}`).subscribe((resCourse:any)=>{
-        if(resCourse){
-          console.log(resCourse);
-          for(let student of resCourse.studentCoursesList){
-            this.http.get(`http://localhost:8080/students/search/${student.studentId}`).subscribe((res:any)=>{
-              this.students.push({
-                id:res.id,
-                fName:res.firstName,
-                lName:res.lastName,
-                email:res.email,
-                phone:res.contact,
-                enrollmentDate:student.date
-              });
-            })
-          }
-          console.log(this.students);
-          
-          this.course=resCourse;
-          this.isCourseSearched=true;
-        }else{
-          this.alert('Course not found on this '+this.instituteId, 'error');
-        }
-        
-      })
+      for(let institute of this.instituteList){
+       if(institute.id==this.searchedInstituteId){
+        this.searchedInstitute=institute;
+        this.isCourseSearched=true;
+        break;
+       }else{
+        this.isCourseSearched=false;
+        this.alert('Your are not registered in this institute', 'error');
+       }
+      }
     }
   }
   public leaveInstitute(){
-    console.log(this.course);
+    if(this.isCourseSearched){
+      this.http.delete(`http://localhost:8080/institutes/${this.searchedInstitute.id}/students/remove/${this.studentId}`,{}).subscribe((res:any)=>{
+        this.alert('You have successfully left the institute', 'success');
+      },(err)=>{
+        this.alert('Error in leaving institute', 'error');
+      })
+
+    }else{
+      this.alert('Please search a institute', 'error');
+    }
   }
   private alert(title: string, type: any){
     Swal.fire({

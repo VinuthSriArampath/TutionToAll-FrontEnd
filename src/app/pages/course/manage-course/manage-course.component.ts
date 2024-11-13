@@ -38,10 +38,10 @@ export class ManageCourseComponent {
       this.http.get(`http://localhost:8080/courses/search/${this.searchCourseId}/institute/${this.instituteId}`).subscribe((res:any)=>{
         if(res){
           this.course = res;
+          this.isCourseSearched = true;
           for(let student of this.course.studentCoursesList){
             this.http.get(`http://localhost:8080/students/search/${student.studentId}`).subscribe((res:any)=>{
-              this.courseStudentList.push(res);
-              this.isCourseSearched = true;
+              this.courseStudentList.push(res);  
             })
           }
         }else{
@@ -68,13 +68,15 @@ export class ManageCourseComponent {
     
   }
   addStudentToCourse(){
-    if(this.isCourseSearched && this.isStudentSearched){
+    console.log(this.isCourseSearched,this.isStudentSearched);
+    
+    if(this.isCourseSearched==true && this.isStudentSearched==true){
       let studentCourse = {
         studentId: this.searchedStudent.id,
         courseId: this.course.id,
         date: new Date().toISOString().split('T')[0]
       }
-      this.http.post(`http://localhost:8080/courses/students/add`,studentCourse).subscribe((res:any)=>{
+      this.http.post(`http://localhost:8080/courses/student/add`,studentCourse).subscribe((res:any)=>{
           this.alertMessage('Student added successfully', 'success');
           this.cancel();
       })
@@ -90,6 +92,7 @@ export class ManageCourseComponent {
   }
   cancel(){
     this.isStudentSearched = false;
+    this.isCourseSearched = false;
     this.searchedStudent = {};
     this.searchStudentId = '';
   }

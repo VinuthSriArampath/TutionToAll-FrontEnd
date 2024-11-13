@@ -94,8 +94,11 @@ export class InstituteAddCourseComponent {
     }
   }
   addTeacherToCourse(courseId: any) {
-    this.http.post(`http://localhost:8080/courses/${courseId}/teachers/add/${this.teacher.teacherId}`,{}).subscribe();
-    this.clearData();
-    this.alertMessage('Course Added Successfully', 'success');
+    this.http.post(`http://localhost:8080/courses/${courseId}/teacher/add/${this.teacher.teacherId}`,{}).subscribe((res:any)=>{
+      this.clearData();
+      this.alertMessage('Course Added Successfully', 'success');
+    },(err)=>{
+      this.alertMessage('Error in adding teacher to course', 'error');
+    });
   }
 }
