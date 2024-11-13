@@ -1,1 +1,100 @@
-<p>student-leave-course works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <app-student-navbar></app-student-navbar>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="container  main-container rounded-5 p-5 shadow-lg my-5">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center subheader-text">Search Course</h1>
+                </div>
+            </div>
+            <div class="container bg-white rounded-4  p-5 my-5">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-3">
+                        <label for="courseId" class="form-label text-dark fw-bold">Course Id :- </label>
+                        <div class="d-flex gap-2">
+                            <input type="text" class="form-control" id="courseId" placeholder="Course Id"
+                                [(ngModel)]="searchedCourseId">
+                            <button type="button" class="btn text-white fw-bold bg-black px-2 px-md-3 px-sm-2"
+                                (click)="searchCourse()">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Institute Id :- </label>
+                                    <label class="form-label text-dark fw-bold">{{institute.id}}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Institute Name :- </label>
+                                    <label class="form-label text-dark fw-bold">{{institute.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Course Name :- </label>
+                                    <label class="form-label text-dark fw-bold">{{course.name}}</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Course Type :- </label>
+                                    <label class="form-label text-dark fw-bold">{{course.type}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :-</label>
+                                <label for="teacherId" class="form-label text-dark fw-bold">{{course.teacherId}}</label>
+                            </div>
+                            <div class="col-12">
+                                <label for="teacherId" class="form-label text-dark fw-bold">Teacher Name :-</label>
+                                <label for="teacherId"
+                                    class="form-label text-dark fw-bold">{{course.teacherName}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Registered Date :- </label>
+                                    <label class="form-label text-dark fw-bold">{{institute.id | date}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-12 d-flex justify-content-center">
+                        <button type="button" class="btn text-black fw-bold border-5 border-danger px-2 px-md-3 px-sm-2 update-btn" (click)="unRegisterCourse()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>

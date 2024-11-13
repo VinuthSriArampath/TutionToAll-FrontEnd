@@ -1,0 +1,21 @@
+.main-container{
+    width: 80%;
+    max-width: 1200px;
+    background-color: #DDF2FF;
+    border-radius: 1rem;
+}
+.update-btn{
+    width: 30%;
+}
+
+@media (max-width: 768px) {
+    .update-btn{
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .update-btn{
+        width: 100%;
+    }
+}

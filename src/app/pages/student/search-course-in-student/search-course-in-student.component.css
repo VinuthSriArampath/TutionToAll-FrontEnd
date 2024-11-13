@@ -4,19 +4,5 @@
     background-color: #DDF2FF;
     border-radius: 1rem;
 }
-.delete-btn{
-    width: 30%;
-}
 
-@media (max-width: 768px) {
-    .delete-btn{
-        width: 50%;
-    }
-}
-
-@media (max-width: 576px) {
-    .delete-btn{
-        width: 100%;
-    }
-}
 

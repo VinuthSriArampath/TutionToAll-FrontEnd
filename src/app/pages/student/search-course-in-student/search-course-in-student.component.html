@@ -32,7 +32,7 @@
                                     <label class="form-label text-dark fw-bold">{{institute.id}}</label>
                                 </div>
                             </div>
-                            <div class="col-12 mb-3">
+                            <div class="col-12">
                                 <div class="d-flex gap-2">
                                     <label for="courseId" class="form-label text-dark fw-bold">Institute Name :- </label>
                                     <label class="form-label text-dark fw-bold">{{institute.name}}</label>
@@ -50,7 +50,7 @@
                                     <label class="form-label text-dark fw-bold">{{course.name}}</label>
                                 </div>
                             </div>
-                            <div class="col-12 mb-3">
+                            <div class="col-12">
                                 <div class="d-flex gap-2">
                                     <label for="courseId" class="form-label text-dark fw-bold">Course Type :- </label>
                                     <label class="form-label text-dark fw-bold">{{course.type}}</label>
@@ -64,10 +64,22 @@
                                 <label for="teacherId" class="form-label text-dark fw-bold">Teacher Id :-</label>
                                 <label for="teacherId" class="form-label text-dark fw-bold">{{course.teacherId}}</label>
                             </div>
-                            <div class="col-12 mb-3">
+                            <div class="col-12">
                                 <label for="teacherId" class="form-label text-dark fw-bold">Teacher Name :-</label>
                                 <label for="teacherId"
                                     class="form-label text-dark fw-bold">{{course.teacherName}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                                <div class="d-flex gap-2">
+                                    <label for="courseId" class="form-label text-dark fw-bold">Registered Date :- </label>
+                                    <label class="form-label text-dark fw-bold">{{institute.id | date}}</label>
+                                </div>
                             </div>
                         </div>
                     </div>
