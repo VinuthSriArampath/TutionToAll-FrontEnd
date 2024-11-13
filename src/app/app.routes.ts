@@ -25,6 +25,7 @@ import { SearchTeacherComponent } from './pages/teacher/search-teacher/search-te
 import { SearchCourseInStudentComponent } from './pages/student/search-course-in-student/search-course-in-student.component';
 import { StudentLeaveCourseComponent } from './pages/student/student-leave-course/student-leave-course.component';
 import { StudentLeaveInstituteComponent } from './pages/student/student-leave-institute/student-leave-institute.component';
+import { SearchInstituteInStudentComponent } from './pages/student/search-institute-in-student/search-institute-in-student.component';
 
 export const routes: Routes = [
     {
@@ -130,5 +131,9 @@ export const routes: Routes = [
     {
         path: 'student/institute/leave',
         component: StudentLeaveInstituteComponent
+    },
+    {
+        path: 'student/institute/search',
+        component: SearchInstituteInStudentComponent
     }
 ];
