@@ -53,9 +53,8 @@ export class SearchCourseInStudentComponent {
           })
         }
       }
-      console.log(this.courseList);
     },(err)=>{
-      console.log(err);
+      this.alert('Error in fetching courses', 'error');
     })  
   }
   public searchCourse(){
@@ -67,7 +66,6 @@ export class SearchCourseInStudentComponent {
           this.searchedCourse=course;
           break;
         }else{
-
           this.alert('Course not found', 'error');
         }
       }
