@@ -21,6 +21,7 @@ import { InstituteRemoveStudentComponent } from './pages/student/institute-remov
 import { SearchStudentInInstituteComponent } from './pages/student/search-student-in-institute/search-student-in-institute.component';
 import { UpdateTeacherComponent } from './pages/teacher/update-teacher/update-teacher.component';
 import { RemoveTeacherFromInstituteComponent } from './pages/teacher/remove-teacher-from-institute/remove-teacher-from-institute.component';
+import { SearchTeacherComponent } from './pages/teacher/search-teacher/search-teacher.component';
 
 export const routes: Routes = [
     {
@@ -110,5 +111,9 @@ export const routes: Routes = [
     {
         path: 'institute/teacher/remove',
         component: RemoveTeacherFromInstituteComponent
+    },
+    {
+        path: 'institute/teacher/search',
+        component: SearchTeacherComponent
     }
 ];
