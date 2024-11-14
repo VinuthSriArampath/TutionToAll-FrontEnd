@@ -49,9 +49,10 @@ export class StudentLeaveCourseComponent {
   public courseList:Course[]=[];
 
   public isCourseSearched: boolean = false;
-
+  private studentId:string='';
   constructor(private http: HttpClient){
-    this.http.get(`http://localhost:8080/students/search/${JSON.parse(sessionStorage.getItem('LoggedUser') || '').id}`).subscribe((student:any)=>{
+    this.studentId=JSON.parse(sessionStorage.getItem('LoggedUser') || '').id;
+    this.http.get(`http://localhost:8080/students/search/${this.studentId}`).subscribe((student:any)=>{
       for(let institute of student.registeredInstitutes){
         for(let course of institute.courses){
           this.http.get(`http://localhost:8080/courses/getByCourseId/${course.courseId}`).subscribe((resCourse:any)=>{
@@ -82,7 +83,27 @@ export class StudentLeaveCourseComponent {
     }
   }
   public unRegisterCourse(){
-   
+   if(this.isCourseSearched){
+    Swal.fire({
+      title: 'Are you sure you want to leave this course?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.http.delete(`http://localhost:8080/courses/${this.searchedCourse.courseId}/remove/student/${this.studentId}`).subscribe((res:any)=>{
+          this.alert('Course unregistered successfully', 'success');
+        },(error:any)=>{
+          this.alert('Error in unregistering course', 'error');
+        })
+      }else if(result.isDenied){
+        this.alert('Course is not unregistered', 'info');
+      }
+    })
+   }else{
+    this.alert('Please search a course first', 'error');
+   }
   }
   private alert(title: string, type: any){
     Swal.fire({
