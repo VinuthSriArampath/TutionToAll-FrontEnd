@@ -48,7 +48,7 @@ export class SearchCourseInStudentComponent {
     this.http.get(`http://localhost:8080/students/search/${JSON.parse(sessionStorage.getItem('LoggedUser') || '').id}`).subscribe((student:any)=>{
       for(let institute of student.registeredInstitutes){
         for(let course of institute.courses){
-          this.http.get(`http://localhost:8080/courses/getCourseById/${course.courseId}`).subscribe((resCourse:any)=>{
+          this.http.get(`http://localhost:8080/courses/getByCourseId/${course.courseId}`).subscribe((resCourse:any)=>{     
             this.courseList.push(new Course(resCourse.id,institute.instituteId,institute.instituteName,resCourse.name,resCourse.type,resCourse.teacherName,course.date));
           })
         }
