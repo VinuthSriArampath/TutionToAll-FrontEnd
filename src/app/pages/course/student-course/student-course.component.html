@@ -1,1 +1,74 @@
-<h1>{{courseId}}</h1>
+<div class="container-fluid">
+    <div class="row">
+        <app-student-navbar></app-student-navbar>
+    </div>
+    <div class="row">
+        <div class="container main-container shadow-lg p-5">
+            <h3 class="text-center subheader-text fw-bold">{{course.name}}</h3>
+            <div class="row mt-5 bg-white py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="subheader-text fw-bold">Notes List</h5>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12 table-responsive">
+                        <table class="table table-striped table-hover ">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col">Note ID</th>
+                                    <th scope="col">Note Name</th>
+                                    <th scope="col">Document</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let note of noteList">
+                                    <td>{{note.id}}</td>
+                                    <td>{{note.name}}</td>
+                                    <td><a href="{{note.document}}" target="_blank">View Document</a></td>
+                                </tr>
+                                <tr *ngIf="!noteList?.length">
+                                    <td colspan="4" class="text-center">No Notes Found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="subheader-text fw-bold">Assignment List</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 table-responsive">
+                        <table class="table table-striped table-hover ">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col">Assignment ID</th>
+                                    <th scope="col">Assignment Name</th>
+                                    <th scope="col">Assignment Date</th>
+                                    <th scope="col">Document</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let assignment of assignmentList">
+                                    <td>{{assignment.id}}</td>
+                                    <td>{{assignment.name}}</td>
+                                    <td>{{assignment.date | date}}</td>
+                                    <td><a href="{{assignment.document}}" target="_blank">View Document</a></td>
+                                </tr>
+                                <tr *ngIf="!assignmentList?.length">
+                                    <td colspan="4" class="text-center">No Assignments Found</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
