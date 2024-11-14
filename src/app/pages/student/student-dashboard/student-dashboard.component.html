@@ -6,17 +6,13 @@
     <div class="row my-4">
         <div class="col-12">
             <div class="container">
-                <!-- Institute Section -->
                 <div class="institute-section mb-4" *ngFor="let institute of instituteList">
-                    <!-- Institute Name -->
                     <h2 class="institute-title mb-4 ps-3 border-start border-4 border-primary">
                         {{institute.instituteName}}
                     </h2>
-                    
-                    <!-- Course Cards -->
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
                         <div class="col" *ngFor="let course of institute.courses">
-                            <div class="card h-100 shadow-sm hover-effect" routerLink="/student/profile">
+                            <div class="card h-100 shadow-sm hover-effect" routerLink="/student/dashboard/course/{{course.courseId}}">
                                 <img src="Sceince Bg.jpeg" class="card-img-top" alt="Course Image">
                                 <div class="card-body">
                                     <h5 class="card-title text-center mb-0">{{course.courseName}}</h5>
