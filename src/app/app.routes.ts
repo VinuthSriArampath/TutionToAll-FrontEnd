@@ -27,6 +27,7 @@ import { StudentLeaveCourseComponent } from './pages/student/student-leave-cours
 import { StudentLeaveInstituteComponent } from './pages/student/student-leave-institute/student-leave-institute.component';
 import { SearchInstituteInStudentComponent } from './pages/student/search-institute-in-student/search-institute-in-student.component';
 import { StudentCourseComponent } from './pages/course/student-course/student-course.component';
+import { TeacherCourseComponent } from './pages/course/teacher-course/teacher-course.component';
 
 export const routes: Routes = [
     {
@@ -141,4 +142,8 @@ export const routes: Routes = [
         path: 'student/dashboard/course/:id',
         component: StudentCourseComponent
     },
+    {
+        path: 'teacher/dashboard/course/:id',
+        component: TeacherCourseComponent
+    }
 ];

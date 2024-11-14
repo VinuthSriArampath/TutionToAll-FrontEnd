@@ -16,7 +16,7 @@
                     <!-- Course Cards -->
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
                         <div class="col" *ngFor="let course of instituteCourseList[i]">
-                            <div class="card h-100 shadow-sm hover-effect" routerLink="/teacher/profile">
+                            <div class="card h-100 shadow-sm hover-effect" routerLink="/teacher/dashboard/course/{{course.id}}">
                                 <img src="ICT.jpeg" class="card-img-top" alt="Course Image">
                                 <div class="card-body">
                                     <h5 class="card-title text-center mb-0">{{course.name}}</h5>
