@@ -19,7 +19,6 @@ export class InstituteRegisterStudentComponent {
   public isRegistered: Boolean = false;
   private isSearched: Boolean = false;
   public studentId: string = '';
-  private studentData: any;
   private instituteId: string = '';
   public student: any = {
     firstName: '',
@@ -31,13 +30,6 @@ export class InstituteRegisterStudentComponent {
     password: '',
   };
   constructor(private router: Router, private http: HttpClient) {
-    this.http
-      .get(`http://localhost:8080/students/all`)
-      .subscribe((res: any) => {
-        this.studentData = res;
-      });
-    console.log(this.studentData);
-    
     const LoggedUser = JSON.parse(sessionStorage.getItem('LoggedUser') || '');
     this.instituteId = LoggedUser.id;
   }
