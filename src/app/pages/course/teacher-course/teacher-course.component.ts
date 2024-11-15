@@ -21,6 +21,9 @@ export class TeacherCourseComponent {
   public dueDate: string = '';
   public assignmentDoc: File | null = null;
   public assignmentList: any[] = [];
+  
+  public noteName:String='';
+  public noteDoc: File | null =null;
   public noteList: any[] = [];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,6 +35,7 @@ export class TeacherCourseComponent {
       .subscribe((res: any) => {
         this.course = res;
         this.loadAssignmentsTable();
+        this,this.loadNoteTable();
       });
   }
   private validateAssignment():boolean {
@@ -87,16 +91,76 @@ export class TeacherCourseComponent {
     }
   }
 
+  private validateNote():boolean{
+    if (this.noteName == '') {
+      this.alertMessage('Please enter a Note Name', 'error');
+      return false;
+    }
+    if (!this.noteDoc) {
+      this.alertMessage('Document is Not Selected', 'error');
+      return false;
+    }
+    return true;
+  }
+  public addNote(){
+    if (this.validateNote()) {
+      const formData = new FormData();
+      const note = {
+        courseId: this.courseId,
+        title: this.noteName,
+      };
+      formData.append(
+        'note',
+        new Blob([JSON.stringify(note)], { type: 'application/json' })
+      );
+
+      if (this.noteDoc) {
+        formData.append('document', this.noteDoc);
+      }
+      this.http
+        .post('http://localhost:8080/notes/add', formData)
+        .subscribe({
+          next: (res: any) => {
+            this.alertMessage('Note Added Successfully !', 'success');
+            this.loadNoteTable();
+            this.noteName = '';
+            this.noteDoc = null;
+            const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+            if (fileInput) {
+                fileInput.value = '';
+            }
+          },
+          error: (error) => {
+            this.alertMessage('Error adding Note ', "error");
+          },
+        });
+    }
+    
+  }
+
   onFileSelected(event: any) {
     this.assignmentDoc = event.target.files[0] as File;
+  }
+
+  onNoteSelect(event:any){
+    this.noteDoc=event.target.files[0] as File;
   }
 
   loadAssignmentsTable(){
     this.http.get(`http://localhost:8080/assignment/all/byCourseId/${this.courseId}`).subscribe({
       next:(res:any)=>{
-        console.log(res);
         
         this.assignmentList=res
+      },
+      error:(error)=>{
+
+      }
+    })
+  }
+  loadNoteTable(){
+    this.http.get(`http://localhost:8080/notes/all/byCourseId/${this.courseId}`).subscribe({
+      next:(res:any)=>{    
+        this.noteList=res
       },
       error:(error)=>{
 

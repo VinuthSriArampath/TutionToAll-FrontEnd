@@ -22,12 +22,12 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="dueDate" class="form-label">Due Date</label>
-                                    <input type="date" class="form-control" id="dueDate" required [(ngModel)]="dueDate">
+                                    <input type="date" class="form-control" id="dueDate" required [(ngModel)]="dueDate" required="">
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="assignmentDoc" class="form-label">Upload Document</label>
                                     <input type="file" class="form-control" id="assignmentDoc"
-                                        (change)="onFileSelected($event)">
+                                        (change)="onFileSelected($event)" required>
                                 </div>
                                 <div class="col-12">
                                     <button type="button" class="btn btn-primary" (click)="addAssignment()">Add
@@ -47,14 +47,14 @@
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <label for="noteName" class="form-label">Note Name</label>
-                                    <input type="text" class="form-control" id="noteName" required>
+                                    <input type="text" class="form-control" id="noteName" [(ngModel)]="noteName" required>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="noteDoc" class="form-label">Upload Document</label>
-                                    <input type="file" class="form-control" id="noteDoc" required>
+                                    <input type="file" class="form-control" id="noteDoc" required (change)="onNoteSelect($event)">
                                 </div>
                                 <div class="col-12">
-                                    <button type="button" class="btn btn-primary">Add Note</button>
+                                    <button type="button" class="btn btn-primary" (click)="addNote()">Add Note</button>
                                 </div>
                             </div>
                         </div>
