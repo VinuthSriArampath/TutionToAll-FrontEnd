@@ -4,17 +4,18 @@ import { ActivatedRoute } from '@angular/router';
 import { FooterComponent } from '../../../common/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { StudentNavbarComponent } from '../../student/common/student-navbar/student-navbar.component';
 import Swal from 'sweetalert2';
+import { TeacherNavbarComponent } from '../../teacher/common/teacher-navbar/teacher-navbar.component';
 @Component({
   selector: 'app-teacher-course',
   standalone: true,
-  imports: [FooterComponent, CommonModule, FormsModule, StudentNavbarComponent],
+  imports: [FooterComponent, CommonModule, FormsModule, TeacherNavbarComponent],
   templateUrl: './teacher-course.component.html',
   styleUrls: ['./teacher-course.component.css'],
 })
 export class TeacherCourseComponent {
   public courseId: string = '';
+  today: Date = new Date();
   public course: any = { id: '', name: '', type: '', teacherId: '' };
   public assignmentName: string = '';
   public dueDate: string = '';
@@ -30,6 +31,7 @@ export class TeacherCourseComponent {
       .get(`http://localhost:8080/courses/getByCourseId/${this.courseId}`)
       .subscribe((res: any) => {
         this.course = res;
+        this.loadAssignmentsTable();
       });
   }
   private validateAssignment():boolean {
@@ -69,6 +71,7 @@ export class TeacherCourseComponent {
         .subscribe({
           next: (res: any) => {
             this.alertMessage('Assignment Added Successfully !', 'success');
+            this.loadAssignmentsTable();
             this.assignmentName = '';
             this.dueDate = '';
             this.assignmentDoc = null;
@@ -78,7 +81,7 @@ export class TeacherCourseComponent {
             }
           },
           error: (error) => {
-            console.error('Error adding assignment:', error);
+            this.alertMessage('Error adding assignment ', "error");
           },
         });
     }
@@ -89,7 +92,16 @@ export class TeacherCourseComponent {
   }
 
   loadAssignmentsTable(){
-    
+    this.http.get(`http://localhost:8080/assignment/all/byCourseId/${this.courseId}`).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        
+        this.assignmentList=res
+      },
+      error:(error)=>{
+
+      }
+    })
   }
 
   private alertMessage(title: String, icon: any) {
@@ -98,4 +110,37 @@ export class TeacherCourseComponent {
       icon: icon,
     });
   }
+  checkDueDate(dueDate: string):number{
+    const today = new Date();
+    const assignmentDueDate = new Date(dueDate);
+    if(this.isDueDateToday(assignmentDueDate)){
+      return 0;
+    }else if(assignmentDueDate > today){
+      return 1;
+    }else{
+      return -1;
+    }
+  }
+  isDueDateFuture(dueDate: string): boolean {
+    const today = new Date();
+    const assignmentDueDate = new Date(dueDate);
+    if( assignmentDueDate > today){
+      return true;
+    }else{
+      return false;
+    }
+    
+  }
+  isDueDateToday(dueDate: string | Date): boolean {
+    const today = new Date();
+    const due = new Date(dueDate);
+
+    return (
+        today.getFullYear() === due.getFullYear() &&
+        today.getMonth() === due.getMonth() &&
+        today.getDate() === due.getDate()
+    );
+}
+
+
 }

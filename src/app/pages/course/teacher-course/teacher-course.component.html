@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <app-student-navbar></app-student-navbar>
+        <app-teacher-navbar></app-teacher-navbar>
     </div>
     <div class="row d-flex justify-content-center align-items-center">
         <div class="container main-container rounded-5 p-5 shadow-lg my-5">
@@ -75,17 +75,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let assignment of assignmentList">
-                                        <td>{{assignment.name}}</td>
+                                    <tr *ngFor="let assignment of assignmentList" [ngClass]="{'table-success': checkDueDate(assignment.dueDate)==1,'table-warning': checkDueDate(assignment.dueDate)==0, 'table-danger': checkDueDate(assignment.dueDate)==-1}">
+                                        <td>{{assignment.assignmentName}}</td>
                                         <td>{{assignment.dueDate | date}}</td>
-                                        <td><a href="{{assignment.documentUrl}}"
-                                                class="btn btn-sm btn-primary">Download</a></td>
+                                        <td>
+                                            <a [href]="'http://localhost:8080/assignment/getDocumentByAssignmentId/' + assignment.id"
+                                                class="btn btn-sm btn-primary" target="_blank">Download</a>
+                                        </td>
                                     </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Display Notes -->
                 <div class="row mt-5">
