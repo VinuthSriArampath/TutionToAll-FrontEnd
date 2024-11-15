@@ -159,7 +159,9 @@ export class TeacherCourseComponent {
   }
   loadNoteTable(){
     this.http.get(`http://localhost:8080/notes/all/byCourseId/${this.courseId}`).subscribe({
-      next:(res:any)=>{    
+      next:(res:any)=>{   
+        console.log(res);
+         
         this.noteList=res
       },
       error:(error)=>{
