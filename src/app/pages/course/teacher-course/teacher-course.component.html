@@ -13,34 +13,37 @@
                 <div class="row mt-5">
                     <div class="col-12">
                         <h3 class="text-dark fw-bold mb-4">Add Assignment</h3>
-                        <form class="bg-light p-4 rounded-3">
+                        <div class="bg-light p-4 rounded-3">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="assignmentName" class="form-label">Assignment Name</label>
-                                    <input type="text" class="form-control" id="assignmentName" required>
+                                    <input type="text" class="form-control" id="assignmentName" required
+                                        [(ngModel)]="assignmentName">
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="dueDate" class="form-label">Due Date</label>
-                                    <input type="date" class="form-control" id="dueDate" required>
+                                    <input type="date" class="form-control" id="dueDate" required [(ngModel)]="dueDate">
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="assignmentDoc" class="form-label">Upload Document</label>
-
-                                    <input type="file" class="form-control" id="assignmentDoc" required>
+                                    <input type="file" class="form-control" id="assignmentDoc"
+                                        (change)="onFileSelected($event)">
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Add Assignment</button>
+                                    <button type="button" class="btn btn-primary" (click)="addAssignment()">Add
+                                        Assignment</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
 
                 <!-- Notes Section -->
                 <div class="row mt-5">
                     <div class="col-12">
                         <h3 class="text-dark fw-bold mb-4">Add Notes</h3>
-                        <form class="bg-light p-4 rounded-3">
+                        <div class="bg-light p-4 rounded-3">
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <label for="noteName" class="form-label">Note Name</label>
@@ -51,10 +54,10 @@
                                     <input type="file" class="form-control" id="noteDoc" required>
                                 </div>
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">Add Note</button>
+                                    <button type="button" class="btn btn-primary">Add Note</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
 
@@ -75,7 +78,8 @@
                                     <tr *ngFor="let assignment of assignmentList">
                                         <td>{{assignment.name}}</td>
                                         <td>{{assignment.dueDate | date}}</td>
-                                        <td><a href="{{assignment.documentUrl}}" class="btn btn-sm btn-primary">Download</a></td>
+                                        <td><a href="{{assignment.documentUrl}}"
+                                                class="btn btn-sm btn-primary">Download</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -98,7 +102,8 @@
                                 <tbody>
                                     <tr *ngFor="let note of noteList">
                                         <td>{{note.name}}</td>
-                                        <td><a href="{{note.documentUrl}}" class="btn btn-sm btn-primary">Download</a></td>
+                                        <td><a href="{{note.documentUrl}}" class="btn btn-sm btn-primary">Download</a>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -111,5 +116,7 @@
     <div class="row">
         <app-footer></app-footer>
     </div>
+    <div class="row">
+        <img src="{{assignmentDoc}}" alt="File preview" class="img-fluid">
+    </div>
 </div>
-
