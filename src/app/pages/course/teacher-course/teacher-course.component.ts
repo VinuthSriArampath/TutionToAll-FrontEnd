@@ -25,10 +25,7 @@ export class TeacherCourseComponent {
   public noteName:String='';
   public noteDoc: File | null =null;
   public noteList: any[] = [];
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private http: HttpClient
-  ) {
+  constructor(private activatedRoute: ActivatedRoute,private http: HttpClient) {
     this.courseId = this.activatedRoute.snapshot.paramMap.get('id') || '';
     this.http
       .get(`http://localhost:8080/courses/getByCourseId/${this.courseId}`)
@@ -78,7 +75,7 @@ export class TeacherCourseComponent {
             this.loadAssignmentsTable();
             this.assignmentName = '';
             this.dueDate = '';
-            this.assignmentDoc = null;
+            this.noteDoc = null;
             const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
             if (fileInput) {
                 fileInput.value = '';
@@ -160,8 +157,6 @@ export class TeacherCourseComponent {
   loadNoteTable(){
     this.http.get(`http://localhost:8080/notes/all/byCourseId/${this.courseId}`).subscribe({
       next:(res:any)=>{   
-        console.log(res);
-         
         this.noteList=res
       },
       error:(error)=>{
