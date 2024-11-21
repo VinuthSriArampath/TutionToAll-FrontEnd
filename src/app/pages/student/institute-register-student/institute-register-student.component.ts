@@ -29,6 +29,7 @@ export class InstituteRegisterStudentComponent {
     address: '',
     password: '',
   };
+  public isLoading: boolean = false;
   constructor(private router: Router, private http: HttpClient) {
     const LoggedUser = JSON.parse(sessionStorage.getItem('LoggedUser') || '');
     this.instituteId = LoggedUser.id;
@@ -136,6 +137,7 @@ export class InstituteRegisterStudentComponent {
   }
   public registerStudent() {
     if (this.validateStudent()) {
+      this.isLoading = true;
       this.http.post(`http://localhost:8080/students/register`, this.student).subscribe(
         (res) => {
           this.alertMessage('Student Registered successfully', 'success');
@@ -143,7 +145,11 @@ export class InstituteRegisterStudentComponent {
         },
         (error) => {
           this.alertMessage('Something went wrong', 'error');
-        });
+        },
+        () => {
+          this.isLoading = false;
+        }
+      );
     }
   }
   public AddTeacher() {
