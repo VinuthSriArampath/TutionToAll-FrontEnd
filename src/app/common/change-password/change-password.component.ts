@@ -32,57 +32,50 @@ export class ChangePasswordComponent {
       if(this.username.charAt(0) === 'I'){
         const institute = this.institutes.find((inst: any) => inst.id === this.username);
         if (institute != null) {
-          institute.password = this.newPassword;
-          this.http.patch(`http://localhost:8080/institutes/update`, institute)
-            .subscribe({
-              next: (response) => {
-                this.alertMessage('Password updated successfully', 'success');
-                this.router.navigate(['/']);
-              },
-              error: (err) => {
-                this.alertMessage('Error updating password: ' + err.message, 'error');
-              }
-            });
+          this.http.patch(`http://localhost:8080/institutes/${institute.id}/updatePassword`,this.newPassword).subscribe({
+            next:(response)=>{
+              this.alertMessage('Password updated successfully', 'success');
+              this.router.navigate(['/']);
+            },
+            error:(error)=>{
+              this.alertMessage('Error updating password: ' + error.message, 'error');
+            }
+          })
         } else {
           this.alertMessage('Invalid username for institute', 'error');
         }
       }else if(this.username.charAt(0) === 'S'){
         const student = this.students.find((st: any) => st.id === this.username);
         if (student != null) {
-          student.password = this.newPassword;
-          console.log(student);
-          
-          this.http.patch(`http://localhost:8080/students/update`, student)
-            .subscribe({
-              next: (response) => {
-                this.alertMessage('Password updated successfully', 'success');
-                this.router.navigate(['/']);
-              },
-              error: (err) => {
-                this.alertMessage('Error updating password: ' + err.message, 'error');
-              }
-            });
+          this.http.patch(`http://localhost:8080/students/${student.id}/updatePassword`, this.newPassword).subscribe({
+            next: (response) => {
+              this.alertMessage('Password updated successfully', 'success');
+              this.router.navigate(['/']);
+            },
+            error: (error) => {
+              this.alertMessage('Error updating password: ' + error.message, 'error');
+            }
+          })
         } else {
           this.alertMessage('Invalid username for student', 'error');
         }
       }else if(this.username.charAt(0) === 'T'){
         const teacher = this.teachers.find((t: any) => t.id === this.username);
         if (teacher != null) {
-          teacher.password = this.newPassword;
-
-          this.http.patch(`http://localhost:8080/teachers/update`, teacher)
-            .subscribe({
-              next: (response) => {
-                this.alertMessage('Password updated successfully', 'success');
-                this.router.navigate(['/']);
-              },
-              error: (err) => {
-                this.alertMessage('Error updating password: ' + err.message, 'error');
-              }
-            });
+          this.http.patch(`http://localhost:8080/teachers/${teacher.id}/updatePassword`, this.newPassword).subscribe({
+            next: (response) => {
+              this.alertMessage('Password updated successfully', 'success');
+              this.router.navigate(['/']);
+            },
+            error: (error) => {
+              this.alertMessage('Error updating password: ' + error.message, 'error');
+            }
+          })
         } else {
           this.alertMessage('Invalid username for teacher', 'error');
         }
+      }else{
+        this.alertMessage('Invalid username','error')
       }
     }
   }
