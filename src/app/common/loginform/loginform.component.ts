@@ -23,7 +23,20 @@ export class LoginformComponent {
   private LoggedUser: any = {
     id: '',
   };
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    this.testConnection();
+  }
+
+  testConnection():void{
+  this.http.get('http://localhost:8080/connections/test').subscribe({
+    next:(res)=>{
+      console.log(res);
+    },
+    error:(err)=>{
+      this.alertMessage("Connection Test","Something Went Wrong Please Try Again Reloading",'error')
+    }
+  });
+  }
   login() {
     if (this.validateLogin()) {
       if (this.LoginUser.userName.charAt(0) === 'I') {
