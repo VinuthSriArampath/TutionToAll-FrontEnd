@@ -36,26 +36,45 @@ export class LoginformComponent {
       this.alertMessage("Connection Test","Something Went Wrong Please Try Again Reloading",'error')
     }
   });
-  }
+  } 
+
   login() {
     if (this.validateLogin()) {
       if (this.LoginUser.userName.charAt(0) === 'I') {
-        this.http.post(`http://localhost:8080/auth/institute/login`, this.LoginUser).subscribe((res:any)=>{
-          this.LoggedUser.id=this.LoginUser.userName;
-          sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
-          this.router.navigate(['/institute/dashboard']);
+        this.http.post(`http://localhost:8080/auth/institute/login`, this.LoginUser).subscribe({
+          next:(res)=>{
+            this.LoggedUser.id=this.LoginUser.userName;
+            sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
+            this.alertMessage("Login Success","Welcome Back",'success');
+            this.router.navigate(['/institute/dashboard']);
+          },
+          error:(err)=>{
+            this.alertMessage("UnAuthorized Login Login As An Institute","Check your username and the password",'error');
+          }
         });
       } else if (this.LoginUser.userName.charAt(0) === 'S') {
-        this.http.post(`http://localhost:8080/auth/student/login`, this.LoginUser).subscribe((res:any)=>{
-          this.LoggedUser.id=this.LoginUser.userName;
-          sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
-          this.router.navigate(['/student/dashboard']);
+        this.http.post(`http://localhost:8080/auth/student/login`, this.LoginUser).subscribe({
+          next:(res)=>{
+            this.LoggedUser.id=this.LoginUser.userName;
+            sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
+            this.alertMessage("Login Success","Welcome Back",'success');
+            this.router.navigate(['/student/dashboard']);
+          },
+          error:(error)=>{
+            this.alertMessage("UnAuthorized Login As A Student","Check your username and the password",'error');
+          }
         });
       }else if(this.LoginUser.userName.charAt(0) === 'T'){
-        this.http.post(`http://localhost:8080/auth/teacher/login`, this.LoginUser).subscribe((res:any)=>{
+        this.http.post(`http://localhost:8080/auth/teacher/login`, this.LoginUser).subscribe({
+          next:(res)=>{
           this.LoggedUser.id=this.LoginUser.userName;
           sessionStorage.setItem("LoggedUser",JSON.stringify(this.LoggedUser));
+          this.alertMessage("Login Success","Welcome Back",'success');
           this.router.navigate(['/teacher/dashboard']);
+          },
+          error:(error)=>{
+            this.alertMessage("UnAuthorized Login As A Teacher","Check your username and the password",'error');
+          }
         });
       } else {
         this.alertMessage('Invalid UserName', '', 'error');
